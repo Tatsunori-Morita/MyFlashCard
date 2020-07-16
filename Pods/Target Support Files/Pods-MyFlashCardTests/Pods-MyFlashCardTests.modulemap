@@ -1,0 +1,6 @@
+framework module Pods_MyFlashCardTests {
+  umbrella header "Pods-MyFlashCardTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CardsCollectionViewCell" customModule="MyFlashCard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="522" height="817"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="522" height="817"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Lq-We-aGu">
+                        <rect key="frame" x="0.0" y="0.0" width="522" height="817"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zQQ-pL-Sb9">
+                                <rect key="frame" x="0.0" y="0.0" width="522" height="772"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdS-i1-dnu">
+                                        <rect key="frame" x="0.0" y="0.0" width="522" height="672"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rmy-8k-yFB">
+                                                <rect key="frame" x="0.0" y="0.0" width="522" height="672"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text1" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JBc-Bw-7Ec" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="522" height="336"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text2" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GSp-tL-ZGv" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="336" width="522" height="336"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="GSp-tL-ZGv" firstAttribute="height" secondItem="rmy-8k-yFB" secondAttribute="height" multiplier="0.5" id="Efk-T1-Nbq"/>
+                                                    <constraint firstItem="JBc-Bw-7Ec" firstAttribute="height" secondItem="rmy-8k-yFB" secondAttribute="height" multiplier="0.5" id="v0c-vX-7mj"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="rmy-8k-yFB" secondAttribute="bottom" id="0Mt-dC-okf"/>
+                                            <constraint firstItem="rmy-8k-yFB" firstAttribute="top" secondItem="TdS-i1-dnu" secondAttribute="top" id="19P-HC-Mxu"/>
+                                            <constraint firstAttribute="trailing" secondItem="rmy-8k-yFB" secondAttribute="trailing" id="Tfi-nP-aXq"/>
+                                            <constraint firstItem="rmy-8k-yFB" firstAttribute="leading" secondItem="TdS-i1-dnu" secondAttribute="leading" id="eXr-pm-YXh"/>
+                                        </constraints>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="comment" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gDD-ka-Icu" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="672" width="522" height="100"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="zWL-gg-xtM"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gDD-ka-Icu" secondAttribute="trailing" id="1qF-hv-AYt"/>
+                                    <constraint firstItem="TdS-i1-dnu" firstAttribute="leading" secondItem="zQQ-pL-Sb9" secondAttribute="leading" id="3AZ-R1-ogq"/>
+                                    <constraint firstItem="gDD-ka-Icu" firstAttribute="leading" secondItem="zQQ-pL-Sb9" secondAttribute="leading" id="5Ag-aL-0vs"/>
+                                    <constraint firstItem="TdS-i1-dnu" firstAttribute="top" secondItem="zQQ-pL-Sb9" secondAttribute="top" id="bOV-j8-uvi"/>
+                                    <constraint firstAttribute="bottom" secondItem="gDD-ka-Icu" secondAttribute="bottom" id="hoH-iH-ugW"/>
+                                    <constraint firstItem="gDD-ka-Icu" firstAttribute="top" secondItem="TdS-i1-dnu" secondAttribute="bottom" id="inl-TP-Tcz"/>
+                                    <constraint firstAttribute="trailing" secondItem="TdS-i1-dnu" secondAttribute="trailing" id="jfI-Ea-QXW"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxD-Ny-SkI">
+                                <rect key="frame" x="0.0" y="772" width="522" height="45"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0aO-Rm-RJW">
+                                        <rect key="frame" x="0.0" y="0.0" width="522" height="45"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-k8-mtH">
+                                                <rect key="frame" x="0.0" y="0.0" width="126.5" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2s-St-waT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="w4R-5j-oYm"/>
+                                                        </constraints>
+                                                        <state key="normal" image="bookmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapBookmarkActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LaG-Bg-ew4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEs-Ka-9n8">
+                                                        <rect key="frame" x="63" y="0.0" width="63.5" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="cZc-1T-8tK"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="bookmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapBookmarkInactiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6aw-JZ-vAe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1eY-qd-w1j">
+                                                <rect key="frame" x="126.5" y="0.0" width="173.5" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-u4-jFA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="I9T-MS-Wxd"/>
+                                                        </constraints>
+                                                        <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCheckActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jmZ-VV-bxD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhM-x0-zmH">
+                                                        <rect key="frame" x="86.5" y="0.0" width="87" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="Onr-zf-aMX"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCheckInactiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="vFu-P8-7jP"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bQa-j1-8kv">
+                                                <rect key="frame" x="300" y="0.0" width="159" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8r-vv-g7A">
+                                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="ruM-GD-KGe"/>
+                                                        </constraints>
+                                                        <state key="normal" image="message" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCommentActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JKW-aH-8lU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5r-0J-rjH">
+                                                        <rect key="frame" x="79.5" y="0.0" width="79.5" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="3BK-IX-9Tx"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="message" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCommentInactiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="GX8-nQ-kTw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWD-5X-hxZ">
+                                                <rect key="frame" x="459" y="0.0" width="63" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="T4n-DN-dQ2"/>
+                                                </constraints>
+                                                <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="edit:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rW5-xW-gro"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="0aO-Rm-RJW" firstAttribute="top" secondItem="qxD-Ny-SkI" secondAttribute="top" id="Ahi-uL-t2I"/>
+                                    <constraint firstAttribute="bottom" secondItem="0aO-Rm-RJW" secondAttribute="bottom" id="S2t-SR-16o"/>
+                                    <constraint firstItem="0aO-Rm-RJW" firstAttribute="leading" secondItem="qxD-Ny-SkI" secondAttribute="leading" id="ZvD-gf-zG1"/>
+                                    <constraint firstAttribute="height" constant="45" id="bOf-s6-47O"/>
+                                    <constraint firstAttribute="trailing" secondItem="0aO-Rm-RJW" secondAttribute="trailing" id="ikI-ZL-Og7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qxD-Ny-SkI" secondAttribute="bottom" id="GDt-um-m4I"/>
+                            <constraint firstItem="zQQ-pL-Sb9" firstAttribute="top" secondItem="1Lq-We-aGu" secondAttribute="top" id="J2i-r1-KRY"/>
+                            <constraint firstItem="qxD-Ny-SkI" firstAttribute="top" secondItem="zQQ-pL-Sb9" secondAttribute="bottom" id="Qns-kx-lvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="qxD-Ny-SkI" secondAttribute="trailing" id="gh8-Il-Zht"/>
+                            <constraint firstAttribute="trailing" secondItem="zQQ-pL-Sb9" secondAttribute="trailing" id="pLl-PI-HN7"/>
+                            <constraint firstItem="qxD-Ny-SkI" firstAttribute="leading" secondItem="1Lq-We-aGu" secondAttribute="leading" id="qHQ-zh-Y0T"/>
+                            <constraint firstItem="zQQ-pL-Sb9" firstAttribute="leading" secondItem="1Lq-We-aGu" secondAttribute="leading" id="ujm-bk-6KP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1Lq-We-aGu" secondAttribute="bottom" id="GsX-AQ-oSX"/>
+                <constraint firstItem="1Lq-We-aGu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="W3o-Fa-evd"/>
+                <constraint firstItem="1Lq-We-aGu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rlY-bC-lEK"/>
+                <constraint firstAttribute="trailing" secondItem="1Lq-We-aGu" secondAttribute="trailing" id="tDx-L9-kIb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="522" height="817"/>
+            <connections>
+                <outlet property="backTextView" destination="GSp-tL-ZGv" id="yUY-HP-jce"/>
+                <outlet property="bookmarkActiveButton" destination="j2s-St-waT" id="RMM-wC-Jng"/>
+                <outlet property="bookmarkInactiveButton" destination="KEs-Ka-9n8" id="6A7-NG-ZOt"/>
+                <outlet property="checkActiveButton" destination="ShX-u4-jFA" id="Gju-LC-5dt"/>
+                <outlet property="checkInactiveButton" destination="zhM-x0-zmH" id="gC3-Gb-7ZY"/>
+                <outlet property="commentActiveButton" destination="O8r-vv-g7A" id="M5s-0I-phN"/>
+                <outlet property="commentInactiveButton" destination="M5r-0J-rjH" id="vsL-JX-GnO"/>
+                <outlet property="commentTextView" destination="gDD-ka-Icu" id="KV1-Oz-E2Q"/>
+                <outlet property="frontTextView" destination="JBc-Bw-7Ec" id="8Dj-nt-1Pv"/>
+            </connections>
+            <point key="canvasLocation" x="142.02898550724638" y="200.55803571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoldingViewCell" rowHeight="551" id="KGk-i7-Jjw" customClass="FoldingViewCell" customModule="MyFlashCard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="466" height="551"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="466" height="551"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8g-ui-H2R" customClass="RotatedView" customModule="FoldingCell">
+                        <rect key="frame" x="8" y="8" width="450" height="100"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="1mC-fM-dnc">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OrJ-Jt-oq2">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="98"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cp-0e-ltD">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTD-D5-VhO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="JXv-9B-Uzj"/>
+                                                            <constraint firstAttribute="height" constant="45" id="KK2-fm-LSM"/>
+                                                        </constraints>
+                                                        <state key="normal" image="bookmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapOpenBookmarkActiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zQ7-eY-RQF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GS6-sh-asD">
+                                                        <rect key="frame" x="45" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="0WH-lT-kXN"/>
+                                                            <constraint firstAttribute="width" constant="45" id="9xo-CQ-KJg"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="bookmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapOpenBookmarkInactiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aIR-FH-2ZI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jch-hd-bW6">
+                                                <rect key="frame" x="0.0" y="53" width="90" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vys-xy-eJX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="hPj-2j-vs7"/>
+                                                            <constraint firstAttribute="width" constant="45" id="tW3-Yp-yvx"/>
+                                                        </constraints>
+                                                        <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapOpenCheckActiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="utb-XX-cKK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrM-Su-z6c">
+                                                        <rect key="frame" x="45" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="8G7-J1-BqD"/>
+                                                            <constraint firstAttribute="height" constant="45" id="dHb-Rl-QwA"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapOpenCheckInactiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zdg-e4-u5X"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyN-F3-sT6">
+                                        <rect key="frame" x="90" y="0.0" width="360" height="98"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1mC-fM-dnc" secondAttribute="bottom" id="AU7-OW-axV"/>
+                            <constraint firstItem="1mC-fM-dnc" firstAttribute="leading" secondItem="l8g-ui-H2R" secondAttribute="leading" id="N69-vT-Mdk"/>
+                            <constraint firstItem="1mC-fM-dnc" firstAttribute="top" secondItem="l8g-ui-H2R" secondAttribute="top" id="Trn-gl-wha"/>
+                            <constraint firstAttribute="trailing" secondItem="1mC-fM-dnc" secondAttribute="trailing" id="phq-Q3-u2V"/>
+                            <constraint firstAttribute="height" constant="100" id="rJN-ic-APD"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnE-sC-l3G">
+                        <rect key="frame" x="8" y="108" width="450" height="400"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzx-0K-kmN">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="4nA-0r-pTE">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RY-oc-LSt">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="100"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ3-1Z-eEG">
+                                                <rect key="frame" x="423" y="0.0" width="27" height="100"/>
+                                                <state key="normal" image="speaker.3" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tapFrontSpeakButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JPh-tl-vpV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4nA-0r-pTE" secondAttribute="bottom" id="2PB-se-c5c"/>
+                                    <constraint firstAttribute="height" constant="100" id="BTx-gn-Jof"/>
+                                    <constraint firstAttribute="trailing" secondItem="4nA-0r-pTE" secondAttribute="trailing" id="l1m-th-cdD"/>
+                                    <constraint firstItem="4nA-0r-pTE" firstAttribute="top" secondItem="bzx-0K-kmN" secondAttribute="top" id="ubl-jw-VwN"/>
+                                    <constraint firstItem="4nA-0r-pTE" firstAttribute="leading" secondItem="bzx-0K-kmN" secondAttribute="leading" id="wgW-Rz-zDh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSX-LQ-IJU" customClass="RotatedView" customModule="FoldingCell">
+                                <rect key="frame" x="0.0" y="100" width="450" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="klf-ch-fge">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-T5-pe5">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="100"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-c3-CaW">
+                                                <rect key="frame" x="423" y="0.0" width="27" height="100"/>
+                                                <state key="normal" image="speaker.3" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tapBackSpeakButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WVp-xZ-Igr"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="klf-ch-fge" firstAttribute="top" secondItem="LSX-LQ-IJU" secondAttribute="top" id="8A0-4n-vbt"/>
+                                    <constraint firstAttribute="bottom" secondItem="klf-ch-fge" secondAttribute="bottom" id="9gg-XS-aUI"/>
+                                    <constraint firstAttribute="trailing" secondItem="klf-ch-fge" secondAttribute="trailing" id="CC4-TO-cUL"/>
+                                    <constraint firstItem="klf-ch-fge" firstAttribute="leading" secondItem="LSX-LQ-IJU" secondAttribute="leading" id="DGb-72-Oac"/>
+                                    <constraint firstAttribute="height" constant="100" id="jf7-nu-L2p"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-bs-goB">
+                                <rect key="frame" x="0.0" y="200" width="450" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMC-wg-cPa">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="gMC-wg-cPa" firstAttribute="leading" secondItem="kPw-bs-goB" secondAttribute="leading" id="GDH-yO-zK3"/>
+                                    <constraint firstAttribute="height" constant="100" id="TIt-sd-KoQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="gMC-wg-cPa" secondAttribute="bottom" id="f8W-74-CSu"/>
+                                    <constraint firstAttribute="trailing" secondItem="gMC-wg-cPa" secondAttribute="trailing" id="v92-z3-dqj"/>
+                                    <constraint firstItem="gMC-wg-cPa" firstAttribute="top" secondItem="kPw-bs-goB" secondAttribute="top" id="vmz-8f-p1d"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVx-uM-bkO" customClass="RotatedView" customModule="FoldingCell">
+                                <rect key="frame" x="0.0" y="300" width="450" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="POn-Aa-UwA">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cAl-ao-Na7">
+                                                <rect key="frame" x="0.0" y="0.0" width="156.5" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Iq-nV-bvJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="100"/>
+                                                        <state key="normal" image="bookmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCloseBookmarkActiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1I3-vp-kRU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yw8-xg-7ra">
+                                                        <rect key="frame" x="78.5" y="0.0" width="78" height="100"/>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="bookmark" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCloseBookmarkInactiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fbf-1f-nSZ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="QKZ-dh-V5N">
+                                                <rect key="frame" x="156.5" y="0.0" width="215" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bei-D2-SY9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="100"/>
+                                                        <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCloseCheckActiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Rbu-87-WU0"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3u-fl-YCn">
+                                                        <rect key="frame" x="107.5" y="0.0" width="107.5" height="100"/>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="checkmark.rectangle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="tapCloseCheckInactiveButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2jQ-u9-pcD"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOj-X0-j6X">
+                                                <rect key="frame" x="371.5" y="0.0" width="78.5" height="100"/>
+                                                <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="edit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LZk-vq-2jN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="POn-Aa-UwA" secondAttribute="trailing" id="6Tb-Zj-eaL"/>
+                                    <constraint firstItem="POn-Aa-UwA" firstAttribute="leading" secondItem="zVx-uM-bkO" secondAttribute="leading" id="9Xa-gJ-uB5"/>
+                                    <constraint firstAttribute="height" constant="100" id="9sH-Sk-L7s"/>
+                                    <constraint firstItem="POn-Aa-UwA" firstAttribute="top" secondItem="zVx-uM-bkO" secondAttribute="top" id="DSe-W9-3db"/>
+                                    <constraint firstAttribute="bottom" secondItem="POn-Aa-UwA" secondAttribute="bottom" id="r30-n7-43P"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bzx-0K-kmN" firstAttribute="leading" secondItem="bnE-sC-l3G" secondAttribute="leading" id="2Qn-ET-CPm"/>
+                            <constraint firstItem="LSX-LQ-IJU" firstAttribute="top" secondItem="bzx-0K-kmN" secondAttribute="bottom" id="3zH-KV-tRj"/>
+                            <constraint firstItem="LSX-LQ-IJU" firstAttribute="leading" secondItem="bnE-sC-l3G" secondAttribute="leading" id="A6Z-dL-SJa"/>
+                            <constraint firstAttribute="height" constant="400" id="JA3-wu-S84"/>
+                            <constraint firstAttribute="trailing" secondItem="zVx-uM-bkO" secondAttribute="trailing" id="O6Y-EI-c3P"/>
+                            <constraint firstAttribute="trailing" secondItem="bzx-0K-kmN" secondAttribute="trailing" id="OAQ-Yw-Fnq"/>
+                            <constraint firstItem="zVx-uM-bkO" firstAttribute="leading" secondItem="bnE-sC-l3G" secondAttribute="leading" id="U6n-Sh-iHQ"/>
+                            <constraint firstAttribute="trailing" secondItem="LSX-LQ-IJU" secondAttribute="trailing" id="WDg-qQ-0bV"/>
+                            <constraint firstItem="zVx-uM-bkO" firstAttribute="top" secondItem="kPw-bs-goB" secondAttribute="bottom" id="Zil-fr-mPs"/>
+                            <constraint firstAttribute="trailing" secondItem="zVx-uM-bkO" secondAttribute="trailing" id="a2i-lz-OhB"/>
+                            <constraint firstItem="zVx-uM-bkO" firstAttribute="leading" secondItem="bnE-sC-l3G" secondAttribute="leading" id="aWk-7k-jYU"/>
+                            <constraint firstItem="kPw-bs-goB" firstAttribute="leading" secondItem="bnE-sC-l3G" secondAttribute="leading" id="cUT-rA-mNo"/>
+                            <constraint firstItem="bzx-0K-kmN" firstAttribute="top" secondItem="bnE-sC-l3G" secondAttribute="top" id="gxD-QP-jBd"/>
+                            <constraint firstItem="kPw-bs-goB" firstAttribute="top" secondItem="LSX-LQ-IJU" secondAttribute="bottom" id="uP7-gZ-FlY"/>
+                            <constraint firstItem="zVx-uM-bkO" firstAttribute="top" secondItem="kPw-bs-goB" secondAttribute="bottom" id="xMs-7J-nIa"/>
+                            <constraint firstAttribute="bottom" secondItem="zVx-uM-bkO" secondAttribute="bottom" id="ymO-It-hck"/>
+                            <constraint firstAttribute="trailing" secondItem="kPw-bs-goB" secondAttribute="trailing" id="zAS-g2-lZ3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="l8g-ui-H2R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="6H7-nD-8Km"/>
+                    <constraint firstItem="l8g-ui-H2R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6yy-NI-SnI"/>
+                    <constraint firstItem="bnE-sC-l3G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="108" id="DiL-ep-yVr"/>
+                    <constraint firstAttribute="trailing" secondItem="l8g-ui-H2R" secondAttribute="trailing" constant="8" id="LRU-9r-cH9"/>
+                    <constraint firstAttribute="trailing" secondItem="bnE-sC-l3G" secondAttribute="trailing" constant="8" id="hTB-fV-VGn"/>
+                    <constraint firstItem="bnE-sC-l3G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ow3-IW-bTG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
+                    <integer key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
+                    <color key="value" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="backSpeakButton" destination="a10-c3-CaW" id="80n-Bk-053"/>
+                <outlet property="closeBookmarkActiveButton" destination="pTD-D5-VhO" id="AoJ-pp-fYt"/>
+                <outlet property="closeBookmarkInactiveButton" destination="GS6-sh-asD" id="fwn-0a-Anc"/>
+                <outlet property="closeCheckActiveButton" destination="Vys-xy-eJX" id="Izt-71-YZB"/>
+                <outlet property="closeCheckInactiveButton" destination="rrM-Su-z6c" id="Tq1-1E-UsR"/>
+                <outlet property="closeFrontLabel" destination="KyN-F3-sT6" id="cNK-V4-8lh"/>
+                <outlet property="commentLabel" destination="gMC-wg-cPa" id="RMv-TK-Cor"/>
+                <outlet property="containerView" destination="bnE-sC-l3G" id="uJN-1Z-HZL"/>
+                <outlet property="containerViewTop" destination="DiL-ep-yVr" id="uML-Zt-hGf"/>
+                <outlet property="editButton" destination="tOj-X0-j6X" id="5hA-ZA-NRb"/>
+                <outlet property="foregroundView" destination="l8g-ui-H2R" id="oPQ-vF-9HN"/>
+                <outlet property="foregroundViewTop" destination="6H7-nD-8Km" id="eLd-dz-gUk"/>
+                <outlet property="frontSpeakButton" destination="DQ3-1Z-eEG" id="7Cu-i8-t5S"/>
+                <outlet property="openBackLabel" destination="TS2-T5-pe5" id="XAJ-yK-lzv"/>
+                <outlet property="openBookmarkActiveButton" destination="6Iq-nV-bvJ" id="6KB-AH-5aU"/>
+                <outlet property="openBookmarkInactiveButton" destination="Yw8-xg-7ra" id="jNT-CK-xMo"/>
+                <outlet property="openCheckActivebutton" destination="Bei-D2-SY9" id="yBG-GL-mjq"/>
+                <outlet property="openCheckInactiveButton" destination="a3u-fl-YCn" id="lMH-li-2ag"/>
+                <outlet property="opneFrontLabel" destination="6RY-oc-LSt" id="ZxF-Xs-bn7"/>
+            </connections>
+            <point key="canvasLocation" x="127.53623188405798" y="183.14732142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="speaker.3" catalog="system" width="128" height="90"/>
+    </resources>
+</document>
