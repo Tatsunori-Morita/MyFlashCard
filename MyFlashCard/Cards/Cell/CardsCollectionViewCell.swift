@@ -12,8 +12,8 @@ class CardsCollectionViewCell: UICollectionViewCell {
 
     weak var delegate: CardsCollectionViewCellDelegete! = nil
     
-    @IBOutlet weak var frontTextView: UITextView!
-    @IBOutlet weak var backTextView: UITextView!
+    private var frontTextView: ToucheEventTextView!
+    private var backTextView: ToucheEventTextView!
     @IBOutlet weak var bookmarkActiveButton: UIButton!
     @IBOutlet weak var bookmarkInactiveButton: UIButton!
     @IBOutlet weak var checkActiveButton: UIButton!
@@ -21,22 +21,9 @@ class CardsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var commentActiveButton: UIButton!
     @IBOutlet weak var commentInactiveButton: UIButton!
-    
-//    private var frontSpeekButton: UIButton {
-//        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-//        btn.backgroundColor = .clear
-//        btn.setImage(UIImage(systemName: "speaker.3"), for: .normal)
-//        btn.addTarget(self, action: #selector(tapFrontSpeekButton), for: .touchUpInside)
-//        return btn
-//    }
+    @IBOutlet weak var frontBaseView: UIView!
+    @IBOutlet weak var backBaseView: UIView!
     private var frontSpeekButton: UIButton!
-//    private var backSpeekButton: UIButton {
-//        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-//        btn.backgroundColor = .clear
-//        btn.setImage(UIImage(systemName: "speaker.3"), for: .normal)
-//        btn.addTarget(self, action: #selector(tapBackSpeekButton), for: .touchUpInside)
-//        return btn
-//    }
     private var backSpeekButton: UIButton!
     private var frontEyeInactiveButton: UIButton!
     private var backEyeInactiveButton: UIButton!
@@ -44,18 +31,20 @@ class CardsCollectionViewCell: UICollectionViewCell {
     private var backEyeActiveButton: UIButton!
     
     override func awakeFromNib() {
-        super.awakeFromNib()        
+        super.awakeFromNib()
+        
+        frontTextView = ToucheEventTextView()
+        backTextView = ToucheEventTextView()
+        
         frontSpeekButton = UIButton()
         frontSpeekButton.backgroundColor = .clear
         frontSpeekButton.setImage(UIImage(systemName: "speaker.3"), for: .normal)
         frontSpeekButton.addTarget(self, action: #selector(tapFrontSpeekButton), for: .touchUpInside)
         
-        
         backSpeekButton = UIButton()
         backSpeekButton.backgroundColor = .clear
         backSpeekButton.setImage(UIImage(systemName: "speaker.3"), for: .normal)
         backSpeekButton.addTarget(self, action: #selector(tapBackSpeekButton), for: .touchUpInside)
-        
         
         frontEyeInactiveButton = UIButton()
         frontEyeInactiveButton.backgroundColor = .clear
@@ -83,23 +72,36 @@ class CardsCollectionViewCell: UICollectionViewCell {
         
         frontEyeAtiveButton.isHidden = true
         backEyeActiveButton.isHidden = true
+
+        frontBaseView.addSubview(frontTextView)
+        backBaseView.addSubview(backTextView)
         
-        frontTextView.addSubview(frontSpeekButton)
-        backTextView.addSubview(backSpeekButton)
-        frontTextView.addSubview(frontEyeInactiveButton)
-        backTextView.addSubview(backEyeInactiveButton)
-        frontTextView.addSubview(frontEyeAtiveButton)
-        backTextView.addSubview(backEyeActiveButton)
+        frontBaseView.addSubview(frontSpeekButton)
+        frontBaseView.bringSubviewToFront(frontSpeekButton)
+        frontBaseView.addSubview(frontEyeInactiveButton)
+        frontBaseView.bringSubviewToFront(frontEyeInactiveButton)
+        frontBaseView.addSubview(frontEyeAtiveButton)
+        frontBaseView.bringSubviewToFront(frontEyeAtiveButton)
+        
+        backBaseView.addSubview(backSpeekButton)
+        backBaseView.bringSubviewToFront(backSpeekButton)
+        backBaseView.addSubview(backEyeInactiveButton)
+        backBaseView.bringSubviewToFront(backEyeInactiveButton)
+        backBaseView.addSubview(backEyeActiveButton)
+        backBaseView.bringSubviewToFront(frontEyeAtiveButton)
     }
     
     override func layoutSubviews() {
-        frontSpeekButton.frame = CGRect(x: 0, y: frontTextView.contentInset.top, width: 50, height: 50)
-        backSpeekButton.frame = CGRect(x: 0, y: backTextView.contentInset.top, width: 50, height: 50)
+        frontTextView.frame = CGRect(x: 0, y: 0, width: frontBaseView.frame.width, height: frontBaseView.frame.height)
+        backTextView.frame = CGRect(x: 0, y: 0, width: backBaseView.frame.width, height: backBaseView.frame.height)
         
-        frontEyeAtiveButton.frame = CGRect(x: frontTextView.frame.width - 50, y: frontTextView.contentInset.top, width: 50, height: 50)
-        frontEyeInactiveButton.frame = CGRect(x: frontTextView.frame.width - 50, y: frontTextView.contentInset.top, width: 50, height: 50)
-        backEyeActiveButton.frame = CGRect(x: backTextView.frame.width - 50, y: backTextView.contentInset.top, width: 50, height: 50)
-        backEyeInactiveButton.frame = CGRect(x: backTextView.frame.width - 50, y: backTextView.contentInset.top, width: 50, height: 50)
+        frontSpeekButton.frame = CGRect(x: 0, y: frontBaseView.frame.height - 50, width: 50, height: 50)
+        backSpeekButton.frame = CGRect(x: 0, y: backBaseView.frame.height - 50, width: 50, height: 50)
+        
+        frontEyeAtiveButton.frame = CGRect(x: frontBaseView.frame.width - 50, y: frontBaseView.frame.height - 50, width: 50, height: 50)
+        frontEyeInactiveButton.frame = CGRect(x: frontBaseView.frame.width - 50, y: frontBaseView.frame.height - 50, width: 50, height: 50)
+        backEyeActiveButton.frame = CGRect(x: backBaseView.frame.width - 50, y: backBaseView.frame.height - 50, width: 50, height: 50)
+        backEyeInactiveButton.frame = CGRect(x: backBaseView.frame.width - 50, y: backBaseView.frame.height - 50, width: 50, height: 50)
         
         frontEyeAtiveButton.isHidden = true
         frontEyeInactiveButton.isHidden = false

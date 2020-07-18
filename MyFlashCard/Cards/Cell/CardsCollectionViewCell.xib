@@ -28,24 +28,18 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rmy-8k-yFB">
                                                 <rect key="frame" x="0.0" y="0.0" width="522" height="672"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text1" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JBc-Bw-7Ec" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHa-in-pnw">
                                                         <rect key="frame" x="0.0" y="0.0" width="522" height="336"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text2" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GSp-tL-ZGv" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r85-Xt-hGd">
                                                         <rect key="frame" x="0.0" y="336" width="522" height="336"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="GSp-tL-ZGv" firstAttribute="height" secondItem="rmy-8k-yFB" secondAttribute="height" multiplier="0.5" id="Efk-T1-Nbq"/>
-                                                    <constraint firstItem="JBc-Bw-7Ec" firstAttribute="height" secondItem="rmy-8k-yFB" secondAttribute="height" multiplier="0.5" id="v0c-vX-7mj"/>
+                                                    <constraint firstItem="YHa-in-pnw" firstAttribute="height" secondItem="rmy-8k-yFB" secondAttribute="height" multiplier="0.5" id="qvv-cC-i4P"/>
+                                                    <constraint firstItem="r85-Xt-hGd" firstAttribute="height" secondItem="rmy-8k-yFB" secondAttribute="height" multiplier="0.5" id="x7n-dZ-EIH"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -207,7 +201,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="522" height="817"/>
             <connections>
-                <outlet property="backTextView" destination="GSp-tL-ZGv" id="yUY-HP-jce"/>
+                <outlet property="backBaseView" destination="r85-Xt-hGd" id="sZ4-Xq-36e"/>
                 <outlet property="bookmarkActiveButton" destination="j2s-St-waT" id="RMM-wC-Jng"/>
                 <outlet property="bookmarkInactiveButton" destination="KEs-Ka-9n8" id="6A7-NG-ZOt"/>
                 <outlet property="checkActiveButton" destination="ShX-u4-jFA" id="Gju-LC-5dt"/>
@@ -215,7 +209,7 @@
                 <outlet property="commentActiveButton" destination="O8r-vv-g7A" id="M5s-0I-phN"/>
                 <outlet property="commentInactiveButton" destination="M5r-0J-rjH" id="vsL-JX-GnO"/>
                 <outlet property="commentTextView" destination="gDD-ka-Icu" id="KV1-Oz-E2Q"/>
-                <outlet property="frontTextView" destination="JBc-Bw-7Ec" id="8Dj-nt-1Pv"/>
+                <outlet property="frontBaseView" destination="YHa-in-pnw" id="M1j-xF-eTX"/>
             </connections>
             <point key="canvasLocation" x="142.02898550724638" y="200.55803571428569"/>
         </collectionViewCell>
