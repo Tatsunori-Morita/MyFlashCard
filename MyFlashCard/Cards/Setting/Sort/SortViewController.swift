@@ -46,6 +46,7 @@ extension SortViewController {
         model.sortType = indexPath.row
         RealmManager.update(bookModel: model)
         RealmManager.isRealmUpdate = true
+        RealmManager.isRefreshIndex = true
     }
     
     private func changeCheckmark(tableView: UITableView, indexPath: IndexPath, customeType: UITableViewCell.AccessoryType, shuffleType: UITableViewCell.AccessoryType, createdAtAscType: UITableViewCell.AccessoryType, createdAtDecType: UITableViewCell.AccessoryType, titleAscType: UITableViewCell.AccessoryType, titleDecType: UITableViewCell.AccessoryType) {
