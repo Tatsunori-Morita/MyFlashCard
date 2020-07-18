@@ -34,7 +34,9 @@ class CardsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         frontTextView = ToucheEventTextView()
+        frontTextView.isEditable = false
         backTextView = ToucheEventTextView()
+        backTextView.isEditable = false
         
         frontSpeekButton = UIButton()
         frontSpeekButton.backgroundColor = .clear
