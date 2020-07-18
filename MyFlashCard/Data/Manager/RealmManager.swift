@@ -13,8 +13,8 @@ struct RealmManager {
     
     private var books: [BookModel] = []
     private var cardModels: [CardModel] = []
-    
     static var isRealmUpdate = false
+    static var isRefreshIndex = false
     
     static func update(cardModel: CardModel) {
         let model = CardModel()
@@ -71,9 +71,9 @@ struct RealmManager {
         let rp: AnyRepository<CardModel> = AnyRepository(CardRealmRepository())
         var conditions = "book_id == '" + bookModel.id + "'"
         if bookModel.bookmarkType == BookmarkType.only.rawValue {
-            conditions += " AND isFavorito == true"
+            conditions += " AND isBookmark == true"
         } else if (bookModel.bookmarkType == BookmarkType.not.rawValue) {
-            conditions += " AND isFavorito == false"
+            conditions += " AND isBookmark == false"
         }
         
         if bookModel.learnType == LearnType.completed.rawValue {

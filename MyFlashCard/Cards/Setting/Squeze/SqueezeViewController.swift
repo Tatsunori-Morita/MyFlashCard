@@ -57,6 +57,7 @@ extension SqueezeViewController {
         model.learnType = 0
         RealmManager.update(bookModel: model)
         RealmManager.isRealmUpdate = true
+        RealmManager.isRefreshIndex = true
         dismiss(animated: true, completion: nil)
     }
     
