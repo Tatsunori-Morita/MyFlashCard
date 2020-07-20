@@ -50,7 +50,7 @@ extension HomeViewController {
     }
 
     private func initTableView() {
-        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - tabBarController!.tabBar.frame.size.height), style: .plain)
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         tableView.backgroundColor = .systemGroupedBackground
         tableView.tableFooterView = UIView(frame: .zero)
