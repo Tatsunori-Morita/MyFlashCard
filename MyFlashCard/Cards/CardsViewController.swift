@@ -594,7 +594,6 @@ extension CardsViewController: UIAdaptivePresentationControllerDelegate {
         if !RealmManager.isRefreshIndex { return }
         RealmManager.isRefreshIndex = false
         flowLayout.currentIndex = 0
-        pageControl!.initValue(currentValue: dataSource.cardModelsCount() == 0 ? 0 : 1, maxValue: dataSource.cardModelsCount())
         collectionView!.scrollToItem(at: IndexPath(row: flowLayout.currentIndex, section: 0), at: .right, animated: true)
     }
 }

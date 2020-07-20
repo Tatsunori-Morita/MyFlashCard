@@ -20,6 +20,14 @@ class SqueezeViewController: UIViewController {
         initNavigation()
         initTableView()
     }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        guard let presentationController = navigationController?.presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+    }
 }
 
 extension SqueezeViewController {
@@ -49,6 +57,7 @@ extension SqueezeViewController {
         model.learnType = section == 1 ? selectedType : book.learnType
         RealmManager.update(bookModel: model)
         RealmManager.isRealmUpdate = true
+        RealmManager.isRefreshIndex = true
     }
     
     private func clearConditions() {

@@ -18,6 +18,14 @@ class SortViewController: UIViewController {
         initNavigation()
         initTableView()
     }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        guard let presentationController = navigationController?.presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+    }
 }
 
 extension SortViewController {
@@ -63,6 +71,7 @@ extension SortViewController {
         model.sortType = 0
         RealmManager.update(bookModel: model)
         RealmManager.isRealmUpdate = true
+        RealmManager.isRefreshIndex = true
         dismiss(animated: true, completion: nil)
     }
 }

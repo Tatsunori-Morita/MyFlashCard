@@ -35,6 +35,7 @@ class PageControlView: UIView {
         }
         
         set(v) {
+            if maxPageLabel.text == "0" { return }
             currentPageLabel.text = v.description
             pageSlider.value = Float(v)
         }
