@@ -13,8 +13,11 @@ class FoldingViewCell: FoldingCell {
     weak var delegate: FoldingViewCellDelegate! = nil
     @IBOutlet weak var closeFrontLabel: UILabel!
     @IBOutlet weak var opneFrontLabel: UILabel!
+    @IBOutlet weak var openFrontTextView: ToucheEventTextView!
     @IBOutlet weak var openBackLabel: UILabel!
+    @IBOutlet weak var openBackTextview: ToucheEventTextView!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var commentTextView: ToucheEventTextView!
     @IBOutlet weak var openBookmarkActiveButton: UIButton!
     @IBOutlet weak var openBookmarkInactiveButton: UIButton!
     @IBOutlet weak var openCheckActivebutton: UIButton!
@@ -114,9 +117,9 @@ class FoldingViewCell: FoldingCell {
             }
             index = f.index
             closeFrontLabel.text = f.front
-            opneFrontLabel.text = f.front
-            openBackLabel.text = f.back
-            commentLabel.text = f.comment
+            openFrontTextView.text = f.front
+            openBackTextview.text = f.back
+            commentTextView.text = f.comment
         }
     }
     

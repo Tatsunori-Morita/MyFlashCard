@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -111,20 +111,36 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="4nA-0r-pTE">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RY-oc-LSt">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="100"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RY-oc-LSt">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="front" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="chC-7d-kDO" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQ3-1Z-eEG">
-                                                <rect key="frame" x="423" y="0.0" width="27" height="100"/>
+                                                <rect key="frame" x="400" y="0.0" width="50" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="Ng8-kL-byW"/>
+                                                </constraints>
                                                 <state key="normal" image="speaker.3" catalog="system"/>
                                                 <connections>
                                                     <action selector="tapFrontSpeakButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JPh-tl-vpV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="chC-7d-kDO" firstAttribute="top" secondItem="4nA-0r-pTE" secondAttribute="top" id="DUb-Yk-nJg"/>
+                                            <constraint firstAttribute="bottom" secondItem="chC-7d-kDO" secondAttribute="bottom" id="aTI-b5-y7d"/>
+                                            <constraint firstItem="chC-7d-kDO" firstAttribute="leading" secondItem="6RY-oc-LSt" secondAttribute="trailing" id="pf2-fg-6Qq"/>
+                                            <constraint firstItem="DQ3-1Z-eEG" firstAttribute="leading" secondItem="chC-7d-kDO" secondAttribute="trailing" id="uLK-Os-wrV"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -142,20 +158,35 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="klf-ch-fge">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-T5-pe5">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="100"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-T5-pe5">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="back" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WCo-3B-BgQ" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-c3-CaW">
-                                                <rect key="frame" x="423" y="0.0" width="27" height="100"/>
+                                                <rect key="frame" x="400" y="0.0" width="50" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="xx6-1G-9eY"/>
+                                                </constraints>
                                                 <state key="normal" image="speaker.3" catalog="system"/>
                                                 <connections>
                                                     <action selector="tapBackSpeakButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WVp-xZ-Igr"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="WCo-3B-BgQ" firstAttribute="leading" secondItem="TS2-T5-pe5" secondAttribute="trailing" id="9y1-vF-c0O"/>
+                                            <constraint firstItem="a10-c3-CaW" firstAttribute="leading" secondItem="WCo-3B-BgQ" secondAttribute="trailing" id="NGj-Yc-HmG"/>
+                                            <constraint firstItem="WCo-3B-BgQ" firstAttribute="top" secondItem="klf-ch-fge" secondAttribute="top" id="OcB-ka-Sim"/>
+                                            <constraint firstAttribute="bottom" secondItem="WCo-3B-BgQ" secondAttribute="bottom" id="iYe-wp-JXH"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -170,18 +201,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-bs-goB">
                                 <rect key="frame" x="0.0" y="200" width="450" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMC-wg-cPa">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMC-wg-cPa">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vKW-Sq-4Fh" customClass="ToucheEventTextView" customModule="MyFlashCard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="gMC-wg-cPa" firstAttribute="leading" secondItem="kPw-bs-goB" secondAttribute="leading" id="GDH-yO-zK3"/>
                                     <constraint firstAttribute="height" constant="100" id="TIt-sd-KoQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="vKW-Sq-4Fh" secondAttribute="bottom" id="Z1r-7t-pCV"/>
+                                    <constraint firstAttribute="trailing" secondItem="vKW-Sq-4Fh" secondAttribute="trailing" id="Zed-eH-1kZ"/>
                                     <constraint firstAttribute="bottom" secondItem="gMC-wg-cPa" secondAttribute="bottom" id="f8W-74-CSu"/>
+                                    <constraint firstItem="vKW-Sq-4Fh" firstAttribute="top" secondItem="kPw-bs-goB" secondAttribute="top" id="jNq-71-6av"/>
+                                    <constraint firstItem="vKW-Sq-4Fh" firstAttribute="leading" secondItem="kPw-bs-goB" secondAttribute="leading" id="lOT-2p-Yik"/>
                                     <constraint firstAttribute="trailing" secondItem="gMC-wg-cPa" secondAttribute="trailing" id="v92-z3-dqj"/>
                                     <constraint firstItem="gMC-wg-cPa" firstAttribute="top" secondItem="kPw-bs-goB" secondAttribute="top" id="vmz-8f-p1d"/>
                                 </constraints>
@@ -302,6 +344,7 @@
                 <outlet property="closeCheckInactiveButton" destination="rrM-Su-z6c" id="Tq1-1E-UsR"/>
                 <outlet property="closeFrontLabel" destination="KyN-F3-sT6" id="cNK-V4-8lh"/>
                 <outlet property="commentLabel" destination="gMC-wg-cPa" id="RMv-TK-Cor"/>
+                <outlet property="commentTextView" destination="vKW-Sq-4Fh" id="zJL-Um-n6Y"/>
                 <outlet property="containerView" destination="bnE-sC-l3G" id="uJN-1Z-HZL"/>
                 <outlet property="containerViewTop" destination="DiL-ep-yVr" id="uML-Zt-hGf"/>
                 <outlet property="editButton" destination="tOj-X0-j6X" id="5hA-ZA-NRb"/>
@@ -309,10 +352,12 @@
                 <outlet property="foregroundViewTop" destination="6H7-nD-8Km" id="eLd-dz-gUk"/>
                 <outlet property="frontSpeakButton" destination="DQ3-1Z-eEG" id="7Cu-i8-t5S"/>
                 <outlet property="openBackLabel" destination="TS2-T5-pe5" id="XAJ-yK-lzv"/>
+                <outlet property="openBackTextview" destination="WCo-3B-BgQ" id="dpx-SB-P0E"/>
                 <outlet property="openBookmarkActiveButton" destination="6Iq-nV-bvJ" id="6KB-AH-5aU"/>
                 <outlet property="openBookmarkInactiveButton" destination="Yw8-xg-7ra" id="jNT-CK-xMo"/>
                 <outlet property="openCheckActivebutton" destination="Bei-D2-SY9" id="yBG-GL-mjq"/>
                 <outlet property="openCheckInactiveButton" destination="a3u-fl-YCn" id="lMH-li-2ag"/>
+                <outlet property="openFrontTextView" destination="chC-7d-kDO" id="Y8U-Tf-RDR"/>
                 <outlet property="opneFrontLabel" destination="6RY-oc-LSt" id="ZxF-Xs-bn7"/>
             </connections>
             <point key="canvasLocation" x="127.53623188405798" y="183.14732142857142"/>
