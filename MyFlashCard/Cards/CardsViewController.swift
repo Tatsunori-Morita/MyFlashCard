@@ -514,12 +514,15 @@ extension CardsViewController: UICollectionViewDelegateFlowLayout {
         (collectionView.collectionViewLayout as! FlowLayout).prepareForPaging()
     }
     
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        pageControl!.currentValue = (flowLayout.currentIndex + 1)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if isStopedSpeaking {
             isStopedSpeaking = false
             speakBothText()
         }
-        pageControl!.currentValue = (flowLayout.currentIndex + 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
