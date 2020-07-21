@@ -18,6 +18,10 @@ class PageControlView: UIView {
         delegate?.touchUpSlider(sender: self)
     }
     
+    @IBAction func touchUpOutside(_ sender: Any) {
+        delegate?.touchUpSlider(sender: self)
+    }
+    
     @IBAction func changeSliderValue(_ sender: Any) {
         delegate?.changeSliderValue(sender: self)
     }

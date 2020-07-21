@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -20,14 +20,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="520" height="212"/>
                             <subviews>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="39V-IY-PFP">
-                                    <rect key="frame" x="-2" y="0.0" width="462" height="213"/>
+                                    <rect key="frame" x="-2" y="0.0" width="466" height="213"/>
                                     <connections>
                                         <action selector="changeSliderValue:" destination="iN0-l3-epB" eventType="valueChanged" id="NSS-ja-2nd"/>
+                                        <action selector="touchUpOutside:" destination="iN0-l3-epB" eventType="touchUpOutside" id="MQf-Aq-13x"/>
                                         <action selector="touchUpSlider:" destination="iN0-l3-epB" eventType="touchUpInside" id="WRH-9I-3xH"/>
                                     </connections>
                                 </slider>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-tX-eGZ">
-                                    <rect key="frame" x="458" y="0.0" width="20" height="212"/>
+                                    <rect key="frame" x="462" y="0.0" width="20" height="212"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="20" id="rYm-o7-wvW"/>
                                     </constraints>
@@ -36,22 +37,22 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPa-vq-IPZ">
-                                    <rect key="frame" x="478" y="0.0" width="42" height="212"/>
+                                    <rect key="frame" x="482" y="0.0" width="38" height="212"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuV-IV-z9w">
-                                            <rect key="frame" x="0.0" y="0.0" width="8.3333333333333339" height="212"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="4.333333333333333" height="212"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsE-KD-kZ3">
-                                            <rect key="frame" x="8.3333333333333144" y="0.0" width="5.3333333333333321" height="212"/>
+                                            <rect key="frame" x="4.3333333333333144" y="0.0" width="5.3333333333333321" height="212"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgY-Od-60c">
-                                            <rect key="frame" x="13.666666666666684" y="0.0" width="28.333333333333329" height="212"/>
+                                            <rect key="frame" x="9.6666666666666838" y="0.0" width="28.333333333333329" height="212"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
