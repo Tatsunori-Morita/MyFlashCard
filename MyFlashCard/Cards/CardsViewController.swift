@@ -211,7 +211,11 @@ extension CardsViewController {
         if flowLayout.currentIndex + 1 == dataSource.cardModelsCount() {
             flowLayout.currentIndex = 0
             isEndSpeaking = true
-            insertBarButtonItem(at: 0, image: UIImage(systemName: "play")!, tag: 4)
+            if bookModel.isRepeat {
+                insertBarButtonItem(at: 0, image: UIImage(systemName: "pause")!, tag: 4)
+            } else {
+                insertBarButtonItem(at: 0, image: UIImage(systemName: "play")!, tag: 4)
+            }
             collectionView!.scrollToItem(at: IndexPath(row: flowLayout.currentIndex, section: 0), at: .right, animated: true)
         } else {
             flowLayout.currentIndex += 1
