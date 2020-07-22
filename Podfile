@@ -6,6 +6,7 @@ target 'MyFlashCard' do
   use_frameworks!
   pod 'RealmSwift'
   pod 'FoldingCell'
+  pod 'DZNEmptyDataSet'
 
   # Pods for MyFlashCard
 

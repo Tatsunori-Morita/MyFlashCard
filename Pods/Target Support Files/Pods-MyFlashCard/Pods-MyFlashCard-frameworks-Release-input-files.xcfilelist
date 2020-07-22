@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-MyFlashCard/Pods-MyFlashCard-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework
 ${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework

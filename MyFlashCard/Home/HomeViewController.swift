@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class HomeViewController: UIViewController {
     private var tableView: UITableView!
@@ -16,11 +17,21 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         initNavigation()
         initTableView()
+        initDZNEmptyDataSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if dataSource.bookModelsCount() == 0 {
+            navigationItem.leftBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.leftBarButtonItem?.isEnabled = true
+        }
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -80,6 +91,11 @@ extension HomeViewController {
             self.loadData()
         }
         present(nav, animated: true, completion: nil)
+    }
+    
+    private func initDZNEmptyDataSet() {
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
     }
 }
 
@@ -156,5 +172,11 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+}
+
+extension HomeViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "データがありません")
     }
 }
