@@ -8,9 +8,11 @@
 
 import UIKit
 import AVFoundation
+import DZNEmptyDataSet
 
 class CardsViewController: UIViewController {
     private var collectionView: UICollectionView!
+    private var toolbar = UIToolbar()
     private var pageControl: PageControlView!
     private var dataSource = RealmManager()
     private var flowLayout = FlowLayout()
@@ -26,23 +28,34 @@ class CardsViewController: UIViewController {
         initNavigation()
         initToolBar()
         initController()
+        switchActiveButton()
         initCollectionView()
+        initDZNEmptyDataSet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
         loadData()
         reloadBook()
+        // バックグランド再生設定
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+        switchActiveButton()
+        setCellHeight()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        toolbar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         pageControl!.initValue(currentValue: flowLayout.currentIndex, maxValue: dataSource.cardModelsCount())
         pageControl!.translatesAutoresizingMaskIntoConstraints = false
         pageControl!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         pageControl!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        pageControl!.bottomAnchor.constraint(equalTo: navigationController!.toolbar.topAnchor, constant: -16).isActive = true
+        pageControl!.bottomAnchor.constraint(equalTo: toolbar.topAnchor, constant: -16).isActive = true
         pageControl!.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +63,6 @@ class CardsViewController: UIViewController {
         collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         collectionView?.bottomAnchor.constraint(equalTo: pageControl!.topAnchor, constant: -16).isActive = true
-        cellHeight = view.frame.height - pageControl.frame.height + (navigationController?.toolbar.frame.height)! + (navigationController?.navigationBar.frame.height)! - 10
     }
 }
 
@@ -88,8 +100,9 @@ extension CardsViewController {
         speedBtn.tag = 1
         intervalBtn.tag = 0
         
+        toolbar.items = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
         toolbarItems = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
-        navigationController?.setToolbarHidden(false, animated: false)
+        view.addSubview(toolbar)
         setToolBar()
     }
     
@@ -357,6 +370,8 @@ extension CardsViewController {
         let nav = UINavigationController(rootViewController: vc)
         vc.bookModel = bookModel
         vc.childCallBack = { () in
+            self.dataSource.loadCardModels(bookModel: self.bookModel)
+            self.switchActiveButton()
             self.loadData()
         }
         present(nav, animated: true, completion: nil)
@@ -380,6 +395,8 @@ extension CardsViewController {
         let nav = UINavigationController(rootViewController: vc)
         vc.bookModel = bookModel
         vc.childCallBack = { () in
+            self.dataSource.loadCardModels(bookModel: self.bookModel)
+            self.switchActiveButton()
             self.loadData()
         }
         present(nav, animated: true, completion: nil)
@@ -449,6 +466,29 @@ extension CardsViewController {
         if isSpeaking {
             speakBothText()
         }
+    }
+    
+    private func initDZNEmptyDataSet() {
+        collectionView.emptyDataSetSource = self
+        collectionView.emptyDataSetDelegate = self
+    }
+    
+    private func switchActiveButton() {
+        if dataSource.cardModelsCount() == 0 {
+            toolbar.isHidden = true
+            pageControl.isHidden = true
+            navigationItem.rightBarButtonItems![1].isEnabled = false
+            navigationItem.rightBarButtonItems![2].isEnabled = false
+        } else {
+            toolbar.isHidden = false
+            pageControl.isHidden = false
+            navigationItem.rightBarButtonItems![1].isEnabled = true
+            navigationItem.rightBarButtonItems![2].isEnabled = true
+        }
+    }
+    
+    private func setCellHeight() {
+        cellHeight = view.frame.height - pageControl.frame.height + (navigationController?.toolbar.frame.height)! + (navigationController?.navigationBar.frame.height)! - 10
     }
 }
 
@@ -612,5 +652,11 @@ extension CardsViewController: PageControlViewDelegete {
     
     func changeSliderValue(sender: PageControlView) {
         pageControl!.currentValue = pageControl!.currentValue
+    }
+}
+
+extension CardsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "データがありません")
     }
 }
