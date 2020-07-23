@@ -652,7 +652,10 @@ extension CardsViewController: PageControlViewDelegete {
     }
     
     func changeSliderValue(sender: PageControlView) {
-        pageControl!.currentValue = pageControl!.currentValue
+        guard let page = pageControl else { return }
+        let index = page.currentValue
+        page.currentValue = index
+        flowLayout.currentIndex = page.currentValue
     }
 }
 
