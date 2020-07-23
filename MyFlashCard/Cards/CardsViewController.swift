@@ -101,7 +101,6 @@ extension CardsViewController {
         intervalBtn.tag = 0
         
         toolbar.items = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
-        toolbarItems = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
         view.addSubview(toolbar)
         setToolBar()
     }
@@ -158,10 +157,12 @@ extension CardsViewController {
     }
     
     private func insertBarButtonItem(at: Int, image: UIImage, tag: Int) {
-        toolbarItems?.remove(at: at)
-        let intervalBtn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        intervalBtn.tag = tag
-        toolbarItems?.insert(intervalBtn, at: at)
+        let btn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
+        btn.tag = tag
+        var items = toolbar.items
+        items!.remove(at: at)
+        items!.insert(btn, at: at)
+        toolbar.items = items
     }
     
     private func initController() {
