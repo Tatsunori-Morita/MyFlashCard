@@ -38,35 +38,35 @@ class CardsCollectionViewCell: UICollectionViewCell {
         backTextView = ToucheEventTextView()
         backTextView.isEditable = false
         
-        frontSpeekButton = UIButton()
+        frontSpeekButton = UIButton(type: .system)
         frontSpeekButton.backgroundColor = .clear
         frontSpeekButton.setImage(UIImage(systemName: "speaker.3"), for: .normal)
         frontSpeekButton.addTarget(self, action: #selector(tapFrontSpeekButton), for: .touchUpInside)
         
-        backSpeekButton = UIButton()
+        backSpeekButton = UIButton(type: .system)
         backSpeekButton.backgroundColor = .clear
         backSpeekButton.setImage(UIImage(systemName: "speaker.3"), for: .normal)
         backSpeekButton.addTarget(self, action: #selector(tapBackSpeekButton), for: .touchUpInside)
         
-        frontEyeInactiveButton = UIButton()
+        frontEyeInactiveButton = UIButton(type: .system)
         frontEyeInactiveButton.backgroundColor = .clear
         frontEyeInactiveButton.tag = 1
         frontEyeInactiveButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         frontEyeInactiveButton.addTarget(self, action: #selector(tapFrontEyeInactiveButton), for: .touchUpInside)
         
-        backEyeInactiveButton = UIButton()
+        backEyeInactiveButton = UIButton(type: .system)
         backEyeInactiveButton.backgroundColor = .clear
         backEyeInactiveButton.tag = 2
         backEyeInactiveButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         backEyeInactiveButton.addTarget(self, action: #selector(tapBackEyeInactiveButton), for: .touchUpInside)
         
-        frontEyeAtiveButton = UIButton()
+        frontEyeAtiveButton = UIButton(type: .system)
         frontEyeAtiveButton.backgroundColor = .clear
         frontEyeAtiveButton.tag = 1
         frontEyeAtiveButton.setImage(UIImage(systemName: "eye"), for: .normal)
         frontEyeAtiveButton.addTarget(self, action: #selector(tapFrontEyeAtiveButton), for: .touchUpInside)
         
-        backEyeActiveButton = UIButton()
+        backEyeActiveButton = UIButton(type: .system)
         backEyeActiveButton.backgroundColor = .clear
         backEyeActiveButton.tag = 2
         backEyeActiveButton.setImage(UIImage(systemName: "eye"), for: .normal)
