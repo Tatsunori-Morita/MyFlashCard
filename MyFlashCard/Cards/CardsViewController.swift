@@ -16,7 +16,6 @@ class CardsViewController: UIViewController {
     private var pageControl: PageControlView!
     private var dataSource = RealmManager()
     private var flowLayout = FlowLayout()
-    private var cellHeight: CGFloat = 0
     private let synthesizer = AVSpeechSynthesizer()
     private var isStopedSpeaking = false
     private var isEndSpeaking = false
@@ -40,7 +39,6 @@ class CardsViewController: UIViewController {
         // バックグランド再生設定
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
         switchActiveButton()
-        setCellHeight()
     }
     
     override func viewDidLayoutSubviews() {
@@ -175,7 +173,7 @@ extension CardsViewController {
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: cellHeight), collectionViewLayout: flowLayout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: setCellHeight()), collectionViewLayout: flowLayout)
         collectionView!.backgroundColor = .clear
         collectionView!.decelerationRate = .fast
         collectionView!.showsHorizontalScrollIndicator = false
@@ -488,8 +486,8 @@ extension CardsViewController {
         }
     }
     
-    private func setCellHeight() {
-        cellHeight = view.frame.height - pageControl.frame.height + (navigationController?.toolbar.frame.height)! + (navigationController?.navigationBar.frame.height)! - 10
+    private func setCellHeight() -> CGFloat {
+        return view.frame.height - pageControl.frame.height - (navigationController?.toolbar.frame.height)! - (navigationController?.navigationBar.frame.height)! - 10
     }
 }
 
@@ -567,7 +565,7 @@ extension CardsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width * 0.9, height: cellHeight)
+        return CGSize(width: view.frame.width * 0.9, height: setCellHeight())
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
