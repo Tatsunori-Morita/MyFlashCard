@@ -79,10 +79,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="522" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-k8-mtH">
-                                                <rect key="frame" x="0.0" y="0.0" width="126.5" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="123.5" height="45"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2s-St-waT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2s-St-waT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="w4R-5j-oYm"/>
                                                         </constraints>
@@ -91,8 +91,8 @@
                                                             <action selector="tapBookmarkActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LaG-Bg-ew4"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEs-Ka-9n8">
-                                                        <rect key="frame" x="63" y="0.0" width="63.5" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEs-Ka-9n8">
+                                                        <rect key="frame" x="62" y="0.0" width="61.5" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="cZc-1T-8tK"/>
                                                         </constraints>
@@ -105,10 +105,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1eY-qd-w1j">
-                                                <rect key="frame" x="126.5" y="0.0" width="173.5" height="45"/>
+                                                <rect key="frame" x="123.5" y="0.0" width="173.5" height="45"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-u4-jFA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-u4-jFA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="I9T-MS-Wxd"/>
                                                         </constraints>
@@ -117,8 +117,8 @@
                                                             <action selector="tapCheckActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jmZ-VV-bxD"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhM-x0-zmH">
-                                                        <rect key="frame" x="86.5" y="0.0" width="87" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhM-x0-zmH">
+                                                        <rect key="frame" x="87" y="0.0" width="86.5" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="Onr-zf-aMX"/>
                                                         </constraints>
@@ -131,10 +131,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bQa-j1-8kv">
-                                                <rect key="frame" x="300" y="0.0" width="159" height="45"/>
+                                                <rect key="frame" x="297" y="0.0" width="162" height="45"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8r-vv-g7A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8r-vv-g7A">
+                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="ruM-GD-KGe"/>
                                                         </constraints>
@@ -143,8 +143,8 @@
                                                             <action selector="tapCommentActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JKW-aH-8lU"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5r-0J-rjH">
-                                                        <rect key="frame" x="79.5" y="0.0" width="79.5" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5r-0J-rjH">
+                                                        <rect key="frame" x="81" y="0.0" width="81" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="3BK-IX-9Tx"/>
                                                         </constraints>
@@ -156,7 +156,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWD-5X-hxZ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWD-5X-hxZ">
                                                 <rect key="frame" x="459" y="0.0" width="63" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="T4n-DN-dQ2"/>
