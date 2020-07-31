@@ -29,6 +29,8 @@ class CardsCollectionViewCell: UICollectionViewCell {
     private var backEyeInactiveButton: UIButton!
     private var frontEyeAtiveButton: UIButton!
     private var backEyeActiveButton: UIButton!
+    let frontBaseBorder = CALayer()
+    let backBaseBorder = CALayer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -91,6 +93,11 @@ class CardsCollectionViewCell: UICollectionViewCell {
         backBaseView.bringSubviewToFront(backEyeInactiveButton)
         backBaseView.addSubview(backEyeActiveButton)
         backBaseView.bringSubviewToFront(frontEyeAtiveButton)
+        
+        frontBaseBorder.backgroundColor = UIColor.systemGray.cgColor
+        frontBaseView.layer.addSublayer(frontBaseBorder)
+        backBaseBorder.backgroundColor = UIColor.systemGray.cgColor
+        backBaseView.layer.addSublayer(backBaseBorder)
     }
     
     override func layoutSubviews() {
@@ -109,6 +116,9 @@ class CardsCollectionViewCell: UICollectionViewCell {
         frontEyeInactiveButton.isHidden = false
         backEyeActiveButton.isHidden = true
         backEyeInactiveButton.isHidden = false
+        
+        frontBaseBorder.frame = CGRect(x: 0, y: frontBaseView.frame.height - 1, width: frontBaseView.frame.width, height: 1)
+        backBaseBorder.frame = CGRect(x: 0, y: backBaseView.frame.height - 1, width: backBaseView.frame.width, height: 1)
     }
 
     @IBAction func tapBookmarkActiveButton(_ sender: Any) {
