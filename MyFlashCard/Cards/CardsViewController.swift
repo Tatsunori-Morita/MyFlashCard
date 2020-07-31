@@ -16,6 +16,9 @@ class CardsViewController: UIViewController {
     private var pageControl: PageControlView!
     private var dataSource = RealmManager()
     private var flowLayout = FlowLayout()
+    private let sliderButton = UIButton(type: .system)
+    private let listButton = UIButton(type: .system)
+    
     private let synthesizer = AVSpeechSynthesizer()
     private var isStopedSpeaking = false
     private var isEndSpeaking = false
@@ -24,12 +27,12 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
-        initNavigation()
         initToolBar()
         initController()
         switchActiveButton()
         initCollectionView()
         initDZNEmptyDataSet()
+        initHeaderButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,28 +73,14 @@ extension CardsViewController {
         return storyboard.instantiateViewController(withIdentifier: "CardsViewController") as! CardsViewController
     }
     
-    private func initNavigation() {
-        // ナビゲーションを透明にする処理
-        navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController!.navigationBar.shadowImage = UIImage()
-        
-        navigationController?.delegate = self
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeEvent))
-        navigationItem.rightBarButtonItems = [
-            UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addCardEvent)),
-            UIBarButtonItem.init(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showCardSettingViewEvent)),
-            UIBarButtonItem.init(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(showFoldingViewEvent))
-        ]
-    }
-    
     private func initToolBar() {
+        toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let playBtn = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
         let speakerBtn = UIBarButtonItem(image: UIImage(systemName: "speaker.3"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
         let repeatBtn = UIBarButtonItem(image: UIImage(named: "repeat_none_Icon2"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
         let speedBtn = UIBarButtonItem(image: UIImage(named: "speed_one"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
         let intervalBtn = UIBarButtonItem(image: UIImage(named: "during_one"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        
         playBtn.tag = 4
         speakerBtn.tag = 3
         repeatBtn.tag = 2
@@ -165,6 +154,7 @@ extension CardsViewController {
     
     private func initController() {
         pageControl = Bundle.main.loadNibNamed("PageControlView", owner: self, options: nil)!.first! as? PageControlView
+        pageControl.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 20)
         view.addSubview(pageControl!)
         pageControl!.delegate = self
     }
@@ -476,18 +466,62 @@ extension CardsViewController {
         if dataSource.cardModelsCount() == 0 {
             toolbar.isHidden = true
             pageControl.isHidden = true
-            navigationItem.rightBarButtonItems![1].isEnabled = false
-            navigationItem.rightBarButtonItems![2].isEnabled = false
+            sliderButton.isEnabled = false
+            listButton.isEnabled = false
         } else {
             toolbar.isHidden = false
             pageControl.isHidden = false
-            navigationItem.rightBarButtonItems![1].isEnabled = true
-            navigationItem.rightBarButtonItems![2].isEnabled = true
+            sliderButton.isEnabled = true
+            listButton.isEnabled = true
         }
     }
     
     private func setCellHeight() -> CGFloat {
-        return view.frame.height - pageControl.frame.height - (navigationController?.toolbar.frame.height)! - (navigationController?.navigationBar.frame.height)! - 10
+        return view.frame.height - pageControl.frame.height - toolbar.frame.height - 50
+    }
+    
+    private func initHeaderButton() {
+        let closeButton = UIButton(type: .system)
+        closeButton.frame = CGRect(x: 5, y: 20, width: 45, height: 45)
+        closeButton.setTitleColor(.systemBlue, for: .normal)
+        let closeImg = UIImage(systemName: "multiply")
+        closeButton.setImage(closeImg, for: .normal)
+        closeButton.layer.masksToBounds = true
+        closeButton.backgroundColor = .clear
+        closeButton.addTarget(self, action: #selector(closeEvent), for: .touchUpInside)
+        view.addSubview(closeButton)
+        view.bringSubviewToFront(closeButton)
+        
+        let addButton = UIButton(type: .system)
+        addButton.frame = CGRect(x: view.frame.width - 50, y: 20, width: 45, height: 45)
+        addButton.setTitleColor(.systemBlue, for: .normal)
+        let plusImg = UIImage(systemName: "plus")
+        addButton.setImage(plusImg, for: .normal)
+        addButton.layer.masksToBounds = true
+        addButton.backgroundColor = .clear
+        addButton.addTarget(self, action: #selector(addCardEvent), for: .touchUpInside)
+        view.addSubview(addButton)
+        view.bringSubviewToFront(addButton)
+        
+        sliderButton.frame = CGRect(x: addButton.frame.origin.x - 50, y: 20, width: 45, height: 45)
+        sliderButton.setTitleColor(.systemBlue, for: .normal)
+        let sliderImg = UIImage(systemName: "slider.horizontal.3")
+        sliderButton.setImage(sliderImg, for: .normal)
+        sliderButton.layer.masksToBounds = true
+        sliderButton.backgroundColor = .clear
+        sliderButton.addTarget(self, action: #selector(showCardSettingViewEvent), for: .touchUpInside)
+        view.addSubview(sliderButton)
+        view.bringSubviewToFront(sliderButton)
+        
+        listButton.frame = CGRect(x: sliderButton.frame.origin.x - 50, y: 20, width: 45, height: 45)
+        listButton.setTitleColor(.systemBlue, for: .normal)
+        let listImg = UIImage(systemName: "list.bullet")
+        listButton.setImage(listImg, for: .normal)
+        listButton.layer.masksToBounds = true
+        listButton.backgroundColor = .clear
+        listButton.addTarget(self, action: #selector(showFoldingViewEvent), for: .touchUpInside)
+        view.addSubview(listButton)
+        view.bringSubviewToFront(listButton)
     }
 }
 
