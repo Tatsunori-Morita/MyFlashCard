@@ -141,9 +141,8 @@ extension HomeViewController: UITableViewDataSource {
             let vc = CardsViewController.createInstance()
             if let book = dataSource.bookData(at: indexPath.row) {
                 vc.bookModel = book
-                let nv = UINavigationController(rootViewController: vc)
-                nv.modalPresentationStyle = .fullScreen
-                present(nv, animated: true, completion: nil)
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
             }
         }
     }
