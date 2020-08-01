@@ -47,10 +47,12 @@ class CardsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         toolbar.translatesAutoresizingMaskIntoConstraints = false
-        toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
         toolbar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        toolbar.layer.cornerRadius = 15
+        toolbar.layer.masksToBounds = true
         
         pageControl!.initValue(currentValue: flowLayout.currentIndex, maxValue: dataSource.cardModelsCount())
         pageControl!.translatesAutoresizingMaskIntoConstraints = false
