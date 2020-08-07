@@ -29,7 +29,6 @@ class CardsViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         initToolBar()
         initController()
-        switchActiveButton()
         initCollectionView()
         initDZNEmptyDataSet()
         initHeaderButton()
@@ -468,7 +467,7 @@ extension CardsViewController {
         if dataSource.cardModelsCount() == 0 {
             toolbar.isHidden = true
             pageControl.isHidden = true
-            sliderButton.isEnabled = false
+            sliderButton.isEnabled = bookModel.cards.count > 0 ? true : false
             listButton.isEnabled = false
         } else {
             toolbar.isHidden = false
@@ -673,6 +672,7 @@ extension CardsViewController: UIAdaptivePresentationControllerDelegate {
         RealmManager.isRealmUpdate = false
         loadData()
         reloadBook()
+        switchActiveButton()
         if !RealmManager.isRefreshIndex { return }
         RealmManager.isRefreshIndex = false
         flowLayout.currentIndex = 0
