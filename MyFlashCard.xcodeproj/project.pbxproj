@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C956F070F804A2F3F4CB95B /* Pods_MyFlashCard_MyFlashCardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044879ACB8C2F30AFB2C58E1 /* Pods_MyFlashCard_MyFlashCardUITests.framework */; };
+		0E18F1AF24E2C28100D984B2 /* PlayControllToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E18F1AE24E2C28100D984B2 /* PlayControllToolbar.swift */; };
 		0E26265524BD658C00C06EA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26265424BD658C00C06EA1 /* AppDelegate.swift */; };
 		0E26265724BD658C00C06EA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26265624BD658C00C06EA1 /* SceneDelegate.swift */; };
 		0E26265924BD658C00C06EA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E26265824BD658C00C06EA1 /* ViewController.swift */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		044879ACB8C2F30AFB2C58E1 /* Pods_MyFlashCard_MyFlashCardUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFlashCard_MyFlashCardUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E18F1AE24E2C28100D984B2 /* PlayControllToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayControllToolbar.swift; sourceTree = "<group>"; };
 		0E26265124BD658C00C06EA1 /* MyFlashCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFlashCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E26265424BD658C00C06EA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E26265624BD658C00C06EA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			children = (
 				0E2626B324BD732800C06EA1 /* PageControlView.swift */,
 				0E2626B524BD735200C06EA1 /* PageControlView.xib */,
+				0E18F1AE24E2C28100D984B2 /* PlayControllToolbar.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				0E2626A424BD6F1F00C06EA1 /* BookViewController.swift in Sources */,
 				0E26269924BD6D1700C06EA1 /* AnyRepository.swift in Sources */,
 				0E2626F024BD7AF700C06EA1 /* FoldingViewCell.swift in Sources */,
+				0E18F1AF24E2C28100D984B2 /* PlayControllToolbar.swift in Sources */,
 				0E2626AF24BD729400C06EA1 /* CardsViewController.swift in Sources */,
 				0E2626C124BD75BC00C06EA1 /* CardViewController.swift in Sources */,
 				0E2626D124BD775300C06EA1 /* SqueezeViewController.swift in Sources */,
