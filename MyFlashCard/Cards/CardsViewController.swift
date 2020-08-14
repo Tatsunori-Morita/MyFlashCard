@@ -12,7 +12,7 @@ import DZNEmptyDataSet
 
 class CardsViewController: UIViewController {
     private var collectionView: UICollectionView!
-    private var toolbar = UIToolbar()
+    private var toolbar = PlayControllToolbar()
     private var pageControl: PageControlView!
     private var dataSource = RealmManager()
     private var flowLayout = FlowLayout()
@@ -76,81 +76,9 @@ extension CardsViewController {
     
     private func initToolBar() {
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let playBtn = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        let speakerBtn = UIBarButtonItem(image: UIImage(systemName: "speaker.3"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        let repeatBtn = UIBarButtonItem(image: UIImage(named: "repeat_none_Icon2"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        let speedBtn = UIBarButtonItem(image: UIImage(named: "speed_one"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        let intervalBtn = UIBarButtonItem(image: UIImage(named: "during_one"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        playBtn.tag = 4
-        speakerBtn.tag = 3
-        repeatBtn.tag = 2
-        speedBtn.tag = 1
-        intervalBtn.tag = 0
-        
-        toolbar.items = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
+        toolbar.book = bookModel
         view.addSubview(toolbar)
-        setToolBar()
-    }
-    
-    private func setToolBar() {
-        setToolBarSpeakerButton()
-        setToolBarRepeatButton()
-        setToolBarSpeedButton()
-        setToolBarIntervalButton()
-    }
-    
-    private func setToolBarSpeakerButton() {
-        if bookModel.isMute {
-            insertBarButtonItem(at: 2, image: UIImage(systemName: "speaker.3")!, tag: 3)
-        } else {
-            insertBarButtonItem(at: 2, image: UIImage(systemName: "speaker.slash")!, tag: 3)
-        }
-    }
-    
-    private func setToolBarRepeatButton() {
-        if bookModel.isRepeat {
-            insertBarButtonItem(at: 4, image: UIImage(named: "repeatIcon")!, tag: 2)
-        } else {
-            insertBarButtonItem(at: 4, image: UIImage(named: "repeat_none_Icon2")!, tag: 2)
-        }
-    }
-    
-    private func setToolBarSpeedButton() {
-        if bookModel.rate == 0.1 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_one")!, tag: 1)
-        } else if bookModel.rate == 0.25 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_two")!, tag: 1)
-        } else if self.bookModel.rate == 0.5 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_three")!, tag: 1)
-        } else if bookModel.rate == 0.75 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_four")!, tag: 1)
-        } else if bookModel.rate == 1 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_five")!, tag: 1)
-        }
-    }
-    
-    private func setToolBarIntervalButton() {
-        if (bookModel.postInterval + bookModel.preInterval) == 0 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_one")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 0.3 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_two")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 0.5 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_three")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 0.7 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_four")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 1 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_five")!, tag: 0)
-        }
-    }
-    
-    private func insertBarButtonItem(at: Int, image: UIImage, tag: Int) {
-        let btn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-        btn.tag = tag
-        var items = toolbar.items
-        items!.remove(at: at)
-        items!.insert(btn, at: at)
-        toolbar.items = items
+        toolbar.playDelegate = self
     }
     
     private func initController() {
@@ -215,9 +143,9 @@ extension CardsViewController {
             flowLayout.currentIndex = 0
             isEndSpeaking = true
             if bookModel.isRepeat {
-                insertBarButtonItem(at: 0, image: UIImage(systemName: "pause")!, tag: 4)
+                toolbar.setToolBarPlayButton(isPlay: true)
             } else {
-                insertBarButtonItem(at: 0, image: UIImage(systemName: "play")!, tag: 4)
+                toolbar.setToolBarPlayButton(isPlay: false)
             }
             collectionView!.scrollToItem(at: IndexPath(row: flowLayout.currentIndex, section: 0), at: .right, animated: true)
         } else {
@@ -247,94 +175,75 @@ extension CardsViewController {
     
     private func tapTookBarButton(tag: Int) {
         let model = bookModel.copy() as! BookModel
-        var at = 0
-        var img: UIImage?
         switch tag {
         case 0:
-            at = 8
             switch bookModel.postInterval + bookModel.preInterval {
             case 0:
                 model.postInterval = 0.15
                 model.preInterval = 0.15
-                img = UIImage(named: "during_two")
             case 0.3:
                 model.postInterval = 0.25
                 model.preInterval = 0.25
-                img = UIImage(named: "during_three")
             case 0.5:
                 model.postInterval = 0.35
                 model.preInterval = 0.35
-                img = UIImage(named: "during_four")
             case 0.7:
                 model.postInterval = 0.5
                 model.preInterval = 0.5
-                img = UIImage(named: "during_five")
             case 1:
                 model.postInterval = 0
                 model.preInterval = 0
-                img = UIImage(named: "during_one")
             default:
                 print("no toolbar button")
             }
+            toolbar.setToolBarIntervalButton(bookModel: model)
         case 1:
-            at = 6
             switch bookModel.rate {
             case 0.1:
                 model.rate = 0.25
-                img = UIImage(named: "speed_two")
             case 0.25:
                 model.rate = 0.5
-                img = UIImage(named: "speed_three")
             case 0.5:
                 model.rate = 0.75
-                img = UIImage(named: "speed_four")
             case 0.75:
                 model.rate = 1
-                img = UIImage(named: "speed_five")
             case 1:
                 model.rate = 0.1
-                img = UIImage(named: "speed_one")
             default:
                 print("no toolbar button")
             }
+            toolbar.setToolBarSpeedButton(bookModel: model)
         case 2:
-            at = 4
             if bookModel.isRepeat {
                 model.isRepeat = false
-                img = UIImage(named: "repeat_none_Icon2")
             } else {
                 model.isRepeat = true
-                img = UIImage(named: "repeatIcon")
             }
+            toolbar.setToolBarRepeatButton(bookModel: model)
         case 3:
-            at = 2
             if bookModel.isMute {
                 model.isMute = false
-                img = UIImage(systemName: "speaker.slash")
             } else {
                 model.isMute = true
-                img = UIImage(systemName: "speaker.3")
             }
+            toolbar.setToolBarSpeakerButton(bookModel: model)
         case 4:
-            at = 0
             if Speaker.isPause() {
                 Speaker.continue()
-                img = UIImage(systemName: "pause")
+                toolbar.setToolBarPlayButton(isPlay: true)
             } else {
                 if Speaker.isSpeaking() {
                     Speaker.pause()
-                    img = UIImage(systemName: "play")
+                    toolbar.setToolBarPlayButton(isPlay: false)
                 } else {
                     speakBothText()
-                    img = UIImage(systemName: "pause")
+                    toolbar.setToolBarPlayButton(isPlay: true)
                 }
             }
-            insertBarButtonItem(at: at, image: img!, tag: tag)
             return
         default:
             print("no toolbar icon")
         }
-        insertBarButtonItem(at: at, image: img!, tag: tag)
         RealmManager.update(bookModel: model)
         reloadBook()
     }
@@ -376,9 +285,7 @@ extension CardsViewController {
         if !Speaker.isPause() {
             Speaker.pause()
             toolbarItems?.remove(at: 0)
-            let playButton = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
-            playButton.tag = 4
-            toolbarItems?.insert(playButton, at: 0)
+            toolbar.setToolBarPlayButton(isPlay: false)
         }
         let vc = CardViewController.createInstance()
         vc.cardModel = dataSource.cardData(at: flowLayout.currentIndex)
@@ -527,10 +434,6 @@ extension CardsViewController {
 }
 
 extension CardsViewController {
-    @objc func tapToolBarButtonEvent(_ sender: UIBarButtonItem) {
-        tapTookBarButton(tag: sender.tag)
-    }
-    
     @objc func showCardSettingViewEvent() {
         showCardSettingView()
     }
@@ -696,5 +599,11 @@ extension CardsViewController: PageControlViewDelegete {
 extension CardsViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "データがありません")
+    }
+}
+
+extension CardsViewController: PlayControllToolbarDelegete {
+    func tapToolBarButtonEvent(sender: UIBarButtonItem) {
+        tapTookBarButton(tag: sender.tag)
     }
 }
