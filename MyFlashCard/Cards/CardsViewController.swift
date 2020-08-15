@@ -177,55 +177,16 @@ extension CardsViewController {
         let model = bookModel.copy() as! BookModel
         switch tag {
         case 0:
-            switch bookModel.postInterval + bookModel.preInterval {
-            case 0:
-                model.postInterval = 0.15
-                model.preInterval = 0.15
-            case 0.3:
-                model.postInterval = 0.25
-                model.preInterval = 0.25
-            case 0.5:
-                model.postInterval = 0.35
-                model.preInterval = 0.35
-            case 0.7:
-                model.postInterval = 0.5
-                model.preInterval = 0.5
-            case 1:
-                model.postInterval = 0
-                model.preInterval = 0
-            default:
-                print("no toolbar button")
-            }
+            model.changeInterval()
             toolbar.setToolBarIntervalButton(bookModel: model)
         case 1:
-            switch bookModel.rate {
-            case 0.1:
-                model.rate = 0.25
-            case 0.25:
-                model.rate = 0.5
-            case 0.5:
-                model.rate = 0.75
-            case 0.75:
-                model.rate = 1
-            case 1:
-                model.rate = 0.1
-            default:
-                print("no toolbar button")
-            }
+            model.changeRate()
             toolbar.setToolBarSpeedButton(bookModel: model)
         case 2:
-            if bookModel.isRepeat {
-                model.isRepeat = false
-            } else {
-                model.isRepeat = true
-            }
+            model.changeRepeat()
             toolbar.setToolBarRepeatButton(bookModel: model)
         case 3:
-            if bookModel.isMute {
-                model.isMute = false
-            } else {
-                model.isMute = true
-            }
+            model.changeMute()
             toolbar.setToolBarSpeakerButton(bookModel: model)
         case 4:
             if Speaker.isPause() {

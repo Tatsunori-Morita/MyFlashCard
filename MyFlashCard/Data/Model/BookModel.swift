@@ -83,6 +83,61 @@ class BookModel: Object, NSCopying {
         newVocabularies.forEach{ model.cards.append($0) }
         return model
     }
+    
+    func changeInterval() {
+        switch postInterval + preInterval {
+        case 0:
+            postInterval = 0.15
+            preInterval = 0.15
+        case 0.3:
+            postInterval = 0.25
+            preInterval = 0.25
+        case 0.5:
+            postInterval = 0.35
+            preInterval = 0.35
+        case 0.7:
+            postInterval = 0.5
+            preInterval = 0.5
+        case 1:
+            postInterval = 0
+            preInterval = 0
+        default:
+            print("no toolbar button")
+        }
+    }
+    
+    func changeRate() {
+        switch rate {
+        case 0.1:
+            rate = 0.25
+        case 0.25:
+            rate = 0.5
+        case 0.5:
+            rate = 0.75
+        case 0.75:
+            rate = 1
+        case 1:
+            rate = 0.1
+        default:
+            print("no toolbar button")
+        }
+    }
+    
+    func changeRepeat() {
+        if isRepeat {
+            isRepeat = false
+        } else {
+            isRepeat = true
+        }
+    }
+    
+    func changeMute() {
+        if isMute {
+            isMute = false
+        } else {
+            isMute = true
+        }
+    }
 }
 
 enum BookmarkType: Int {
