@@ -31,11 +31,11 @@ class PlayControllToolbar: UIToolbar {
         let repeatBtn = UIBarButtonItem(image: UIImage(named: "repeat_none_Icon2"), style: .plain, target: self, action: nil)
         let speedBtn = UIBarButtonItem(image: UIImage(named: "speed_one"), style: .plain, target: self, action: nil)
         let intervalBtn = UIBarButtonItem(image: UIImage(named: "during_one"), style: .plain, target: self, action: nil)
-        playBtn.tag = 4
-        speakerBtn.tag = 3
-        repeatBtn.tag = 2
-        speedBtn.tag = 1
-        intervalBtn.tag = 0
+        playBtn.tag = Tag.playButton.rawValue
+        speakerBtn.tag = Tag.speakerButton.rawValue
+        repeatBtn.tag = Tag.repeatButton.rawValue
+        speedBtn.tag = Tag.speedButton.rawValue
+        intervalBtn.tag = Tag.intervalButton.rawValue
         items = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
     }
     
@@ -48,53 +48,53 @@ class PlayControllToolbar: UIToolbar {
     
     func setToolBarPlayButton(isPlay: Bool) {
         if isPlay {
-            insertBarButtonItem(at: 0, image: UIImage(systemName: "pause")!, tag: 4)
+            insertBarButtonItem(at: Tag.playButton.rawValue, image: UIImage(systemName: "pause")!, tag: Tag.playButton.rawValue)
         } else {
-            insertBarButtonItem(at: 0, image: UIImage(systemName: "play")!, tag: 4)
+            insertBarButtonItem(at: Tag.playButton.rawValue, image: UIImage(systemName: "play")!, tag: Tag.playButton.rawValue)
         }
     }
     
     func setToolBarSpeakerButton(bookModel: BookModel) {
         if bookModel.isMute {
-            insertBarButtonItem(at: 2, image: UIImage(systemName: "speaker.3")!, tag: 3)
+            insertBarButtonItem(at: Tag.speakerButton.rawValue, image: UIImage(systemName: "speaker.3")!, tag: Tag.speakerButton.rawValue)
         } else {
-            insertBarButtonItem(at: 2, image: UIImage(systemName: "speaker.slash")!, tag: 3)
+            insertBarButtonItem(at: Tag.speakerButton.rawValue, image: UIImage(systemName: "speaker.slash")!, tag: Tag.speakerButton.rawValue)
         }
     }
     
     func setToolBarRepeatButton(bookModel: BookModel) {
         if bookModel.isRepeat {
-            insertBarButtonItem(at: 4, image: UIImage(named: "repeatIcon")!, tag: 2)
+            insertBarButtonItem(at: Tag.repeatButton.rawValue, image: UIImage(named: "repeatIcon")!, tag: Tag.repeatButton.rawValue)
         } else {
-            insertBarButtonItem(at: 4, image: UIImage(named: "repeat_none_Icon2")!, tag: 2)
+            insertBarButtonItem(at: Tag.repeatButton.rawValue, image: UIImage(named: "repeat_none_Icon2")!, tag: Tag.repeatButton.rawValue)
         }
     }
     
     func setToolBarSpeedButton(bookModel: BookModel) {
-        if bookModel.rate == 0.1 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_one")!, tag: 1)
-        } else if bookModel.rate == 0.25 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_two")!, tag: 1)
-        } else if bookModel.rate == 0.5 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_three")!, tag: 1)
-        } else if bookModel.rate == 0.75 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_four")!, tag: 1)
-        } else if bookModel.rate == 1 {
-            insertBarButtonItem(at: 6, image: UIImage(named: "speed_five")!, tag: 1)
+        if bookModel.rate == BookModel.Speed.level1.rawValue {
+            insertBarButtonItem(at: Tag.speedButton.rawValue, image: UIImage(named: "speed_one")!, tag: Tag.speedButton.rawValue)
+        } else if bookModel.rate == BookModel.Speed.level2.rawValue {
+            insertBarButtonItem(at: Tag.speedButton.rawValue, image: UIImage(named: "speed_two")!, tag: Tag.speedButton.rawValue)
+        } else if bookModel.rate == BookModel.Speed.level3.rawValue {
+            insertBarButtonItem(at: Tag.speedButton.rawValue, image: UIImage(named: "speed_three")!, tag: Tag.speedButton.rawValue)
+        } else if bookModel.rate == BookModel.Speed.level4.rawValue {
+            insertBarButtonItem(at: Tag.speedButton.rawValue, image: UIImage(named: "speed_four")!, tag: Tag.speedButton.rawValue)
+        } else if bookModel.rate == BookModel.Speed.level5.rawValue {
+            insertBarButtonItem(at: Tag.speedButton.rawValue, image: UIImage(named: "speed_five")!, tag: Tag.speedButton.rawValue)
         }
     }
     
     func setToolBarIntervalButton(bookModel: BookModel) {
-        if (bookModel.postInterval + bookModel.preInterval) == 0 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_one")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 0.3 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_two")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 0.5 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_three")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 0.7 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_four")!, tag: 0)
-        } else if (bookModel.postInterval + bookModel.preInterval) == 1 {
-            insertBarButtonItem(at: 8, image: UIImage(named: "during_five")!, tag: 0)
+        if (bookModel.postInterval + bookModel.preInterval) == BookModel.Interval.level1.rawValue {
+            insertBarButtonItem(at: Tag.intervalButton.rawValue, image: UIImage(named: "during_one")!, tag: Tag.intervalButton.rawValue)
+        } else if (bookModel.postInterval + bookModel.preInterval) == BookModel.Interval.level2.rawValue {
+            insertBarButtonItem(at: Tag.intervalButton.rawValue, image: UIImage(named: "during_two")!, tag: Tag.intervalButton.rawValue)
+        } else if (bookModel.postInterval + bookModel.preInterval) == BookModel.Interval.level3.rawValue {
+            insertBarButtonItem(at: Tag.intervalButton.rawValue, image: UIImage(named: "during_three")!, tag: Tag.intervalButton.rawValue)
+        } else if (bookModel.postInterval + bookModel.preInterval) == BookModel.Interval.level4.rawValue {
+            insertBarButtonItem(at: Tag.intervalButton.rawValue, image: UIImage(named: "during_four")!, tag: Tag.intervalButton.rawValue)
+        } else if (bookModel.postInterval + bookModel.preInterval) == BookModel.Interval.level5.rawValue {
+            insertBarButtonItem(at: Tag.intervalButton.rawValue, image: UIImage(named: "during_five")!, tag: Tag.intervalButton.rawValue)
         }
     }
     
@@ -123,4 +123,12 @@ class PlayControllToolbar: UIToolbar {
 
 protocol PlayControllToolbarDelegete: class {
     func tapToolBarButtonEvent(sender: UIBarButtonItem)
+}
+
+enum Tag: Int {
+    case playButton = 0
+    case speakerButton = 2
+    case repeatButton = 4
+    case speedButton = 6
+    case intervalButton = 8
 }

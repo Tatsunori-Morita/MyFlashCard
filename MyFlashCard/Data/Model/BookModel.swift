@@ -34,6 +34,22 @@ class BookModel: Object, NSCopying {
     @objc dynamic var created_at: Date?
     @objc dynamic var updated_at: Date?
     var cards = List<CardModel>()
+    
+    enum Speed: Float {
+        case level1 = 0.1
+        case level2 = 0.25
+        case level3 = 0.5
+        case level4 = 0.75
+        case level5 = 1.0
+    }
+    
+    enum Interval: Float {
+        case level1 = 0
+        case level2 = 0.3
+        case level3 = 0.5
+        case level4 = 0.7
+        case level5 = 1.0
+    }
 
     override static func primaryKey() -> String? {
         return "id"
