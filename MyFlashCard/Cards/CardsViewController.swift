@@ -176,19 +176,19 @@ extension CardsViewController {
     private func tapTookBarButton(tag: Int) {
         let model = bookModel.copy() as! BookModel
         switch tag {
-        case 0:
+        case Tag.intervalButton.rawValue:
             model.changeInterval()
             toolbar.setToolBarIntervalButton(bookModel: model)
-        case 1:
+        case Tag.speedButton.rawValue:
             model.changeRate()
             toolbar.setToolBarSpeedButton(bookModel: model)
-        case 2:
+        case Tag.repeatButton.rawValue:
             model.changeRepeat()
             toolbar.setToolBarRepeatButton(bookModel: model)
-        case 3:
+        case Tag.speakerButton.rawValue:
             model.changeMute()
             toolbar.setToolBarSpeakerButton(bookModel: model)
-        case 4:
+        case Tag.playButton.rawValue:
             if Speaker.isPause() {
                 Speaker.continue()
                 toolbar.setToolBarPlayButton(isPlay: true)
@@ -245,7 +245,7 @@ extension CardsViewController {
     private func showCardView() {
         if !Speaker.isPause() {
             Speaker.pause()
-            toolbarItems?.remove(at: 0)
+            toolbarItems?.remove(at: Tag.playButton.rawValue)
             toolbar.setToolBarPlayButton(isPlay: false)
         }
         let vc = CardViewController.createInstance()
