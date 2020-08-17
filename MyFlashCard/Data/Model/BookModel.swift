@@ -11,6 +11,7 @@ import RealmSwift
 
 class BookModel: Object, NSCopying {
     @objc dynamic var id: String = NSUUID().uuidString
+    @objc dynamic var order: Double = 0.0
     @objc dynamic var title: String?
     @objc dynamic var note: String?
     @objc dynamic var isRepeat: Bool = false // リピート

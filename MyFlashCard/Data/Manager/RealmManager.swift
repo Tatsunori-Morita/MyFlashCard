@@ -36,6 +36,7 @@ struct RealmManager {
         let rp: AnyRepository<BookModel> = AnyRepository(BookRealmRepository())
         let model = BookModel()
         model.id = bookModel.id
+        model.order = bookModel.order
         model.title = bookModel.title
         model.note = bookModel.note
         model.isRepeat = bookModel.isRepeat

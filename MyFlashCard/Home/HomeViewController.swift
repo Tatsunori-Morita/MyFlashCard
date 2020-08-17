@@ -80,7 +80,7 @@ extension HomeViewController {
     }
 
     private func loadData() {
-        dataSource.loadBookModels(conditions: "", sortKey: "updated_at", asc: false)
+        dataSource.loadBookModels(conditions: "", sortKey: "order", asc: true)
         tableView.reloadData()
     }
 
@@ -164,7 +164,37 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
+        if sourceIndexPath.row == destinationIndexPath.row {
+            return
+        } else {
+            var newOrder: Double
+            if destinationIndexPath.row == 0 {
+                // 一番上に移動した場合は先頭セル - 1
+                newOrder = (dataSource.bookData(at: destinationIndexPath.row)!.order ) - 1.0
+            } else if destinationIndexPath.row == dataSource.bookModelsCount() - 1 {
+                // 一番下に移動した場合は末尾セル + 1
+                newOrder = (dataSource.bookData(at: destinationIndexPath.row)!.order ) + 1.0
+            } else {
+                // 途中に移動したときは上下セルの中央値
+                var rowPrev: Int, rowNext: Int;
+                if (destinationIndexPath.row < sourceIndexPath.row) {
+                    // 上に移動した場合
+                    rowPrev = destinationIndexPath.row - 1
+                    rowNext = destinationIndexPath.row
+                } else {
+                    // 下に移動した場合
+                    rowPrev = destinationIndexPath.row
+                    rowNext = destinationIndexPath.row + 1
+                }
+                newOrder = ((dataSource.bookData(at: rowPrev)!.order ) + (dataSource.bookData(at: rowNext)!.order )) / 2.0
+            }
+            let model = dataSource.bookData(at: sourceIndexPath.row)!.copy() as! BookModel
+            model.order = newOrder
+            model.updated_at = Date()
+            RealmManager.update(bookModel: model)
+            loadData()
+            tableView.reloadData()
+        }
     }
 }
 

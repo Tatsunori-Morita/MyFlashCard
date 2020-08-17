@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window.rootViewController = UINavigationController(rootViewController: CardsViewController.createInstance())
         window.rootViewController = rootViewController()
         
-        let version: UInt64 = 1
+        let version: UInt64 = 2
         let config = Realm.Configuration(
             schemaVersion: version,
             migrationBlock: { migration, oldSchemaVersion in
@@ -32,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
         })
         Realm.Configuration.defaultConfiguration = config
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         let _ = try! Realm()
     }
 
