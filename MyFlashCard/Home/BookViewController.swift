@@ -12,6 +12,7 @@ class BookViewController: UITableViewController {
     private let sections: [String] = ["タイトル", "説明", "表面の読み上げ言語", "裏面の読み上げ言語", ""]
     private var titleTextField: DoneTextField!
     private var noteTextView: DoneTextView!
+    private var dataSource = RealmManager()
     var bookModel: BookModel!
     var childCallBack: (() -> Void)?
     
@@ -19,6 +20,7 @@ class BookViewController: UITableViewController {
         super.viewDidLoad()
         initNavigation()
         initTableView()
+        loadData()
     }
 }
 
@@ -37,6 +39,11 @@ extension BookViewController {
     private func initTableView() {
         tableView.allowsMultipleSelection = true
         tableView.backgroundColor = .systemGroupedBackground
+    }
+    
+    private func loadData() {
+        dataSource.loadBookModels(conditions: "", sortKey: "order", asc: true)
+        tableView.reloadData()
     }
     
     private func saveBook(title: String?, note: String?) {
@@ -71,6 +78,7 @@ extension BookViewController {
             let model = BookModel()
             model.title = title
             model.note = note
+            model.order = Double(dataSource.bookModelsCount() + 1)
             model.created_at = Date()
             model.updated_at = Date()
             RealmManager.update(bookModel: model)
