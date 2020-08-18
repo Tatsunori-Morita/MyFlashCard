@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window.rootViewController = UINavigationController(rootViewController: CardsViewController.createInstance())
         window.rootViewController = rootViewController()
         
-        let version: UInt64 = 2
+        let version: UInt64 = 3
         let config = Realm.Configuration(
             schemaVersion: version,
             migrationBlock: { migration, oldSchemaVersion in
