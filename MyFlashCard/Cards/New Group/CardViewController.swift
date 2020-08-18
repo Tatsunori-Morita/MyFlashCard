@@ -75,6 +75,7 @@ extension CardViewController {
             model.front = front
             model.back = back
             model.comment = comment
+            model.order = Double(bookModel.cards.count + 1)
             model.book_id = bookModel.id
             model.created_at = Date()
             model.updated_at = Date()

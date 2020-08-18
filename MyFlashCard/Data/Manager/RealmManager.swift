@@ -19,6 +19,7 @@ struct RealmManager {
     static func update(cardModel: CardModel) {
         let model = CardModel()
         model.id = cardModel.id
+        model.order = cardModel.order
         model.book_id = cardModel.book_id
         model.front = cardModel.front
         model.back = cardModel.back
@@ -87,7 +88,7 @@ struct RealmManager {
         var asc = true
         switch bookModel.sortType {
         case SortType.custome.rawValue:
-            sortKey = "id"
+            sortKey = "order"
         case SortType.createdAtAsc.rawValue:
             sortKey = "created_at"
         case SortType.createdAtDec.rawValue:

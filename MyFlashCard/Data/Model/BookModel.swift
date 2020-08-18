@@ -59,6 +59,7 @@ class BookModel: Object, NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let model = BookModel()
         model.id = id
+        model.order = order
         model.title = title
         model.note = note
         model.isRepeat = isRepeat
@@ -86,6 +87,7 @@ class BookModel: Object, NSCopying {
             vocabulary -> CardModel in
             let vocabularyModel = CardModel()
             vocabularyModel.id = vocabulary.id
+            vocabularyModel.order = vocabulary.order
             vocabularyModel.book_id = vocabulary.book_id
             vocabularyModel.front = vocabulary.front
             vocabularyModel.back = vocabulary.back

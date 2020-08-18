@@ -11,6 +11,7 @@ import RealmSwift
 
 class CardModel: Object, NSCopying {
     @objc dynamic var id: String = NSUUID().uuidString
+    @objc dynamic var order: Double = 0.0
     @objc dynamic var book_id: String?
     @objc dynamic var front: String?
     @objc dynamic var back: String?
@@ -29,6 +30,7 @@ class CardModel: Object, NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let model = CardModel()
         model.id = id
+        model.order = order
         model.book_id = book_id
         model.front = front
         model.back = back
