@@ -15,7 +15,9 @@ iOSの単語帳アプリ
 - 単語の設定変更(表示位置、文字サイズ、表示方法)
 
 ## デザイン  
-- 現在検討中
+- 2020.08.19案  
+![image1](https://user-images.githubusercontent.com/56668897/90639951-5fce7c80-e26a-11ea-9721-1729edb6feda.png) ![image0](https://user-images.githubusercontent.com/56668897/90640075-812f6880-e26a-11ea-9794-9ffd21bdad5c.png)  
+
 
 ## リリース時期
 - 未定(ある程度自分で使い込んで方針が固まったらリリース予定)
