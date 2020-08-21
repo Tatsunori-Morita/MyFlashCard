@@ -14,14 +14,28 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var cardCountLabel: UILabel!
     @IBOutlet weak var bookMarkCountLabel: UILabel!
     @IBOutlet weak var checkCountlLabel: UILabel!
+    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var containerView: UIView!
+    private let bottomBorder = CALayer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        baseView.layer.cornerRadius = 5
+        containerView.layer.cornerRadius = 5
+        bottomBorder.backgroundColor = UIColor(red: 215/255, green: 213/255, blue: 213/255, alpha: 1).cgColor
+        titleLabel.layer.addSublayer(bottomBorder)
+        
+        baseView.layer.shadowColor = UIColor(red: 203/255, green: 208/255, blue: 216/255, alpha: 1).cgColor
+        baseView.layer.shadowRadius = 4
+        baseView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        baseView.layer.shadowOpacity = 1
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         noteTextView.isUserInteractionEnabled = false
+        let borderWidth = CGFloat(1)
+        bottomBorder.frame = CGRect(x: 0, y: titleLabel.frame.size.height - borderWidth, width: frame.size.width - 80, height: borderWidth)
     }
     
     var home: HomeCellParam? {

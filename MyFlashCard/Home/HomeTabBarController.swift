@@ -16,17 +16,19 @@ class HomeTabBarController: UITabBarController {
         
         let homeVC = HomeViewController.createInstance()
         let homeNavi = UINavigationController(rootViewController: homeVC)
-        homeNavi.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
+        homeNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house"))
         homeNavi.tabBarItem.tag = 1
         
         let commonVC = CommonSettingViewController.createInstance()
         let commonNavi = UINavigationController(rootViewController: commonVC)
-        commonNavi.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(systemName: "gear"), selectedImage: UIImage(named: "gear"))
+        commonNavi.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "gear"), selectedImage: UIImage(named: "gear"))
         commonNavi.tabBarItem.tag = 2
         
         viewControllers.append(homeNavi)
         viewControllers.append(commonNavi)
         
+        UITabBar.appearance().tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 1.0)
+        tabBar.barTintColor = UIColor(red: 250/255, green: 249/255, blue: 249/255, alpha: 1.0)
         self.tabBar.isTranslucent = false
         self.setViewControllers(viewControllers, animated: false)
         

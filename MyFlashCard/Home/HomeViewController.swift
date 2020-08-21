@@ -54,16 +54,22 @@ extension HomeViewController {
     }
     
     private func initNavigation() {
-        navigationItem.title = "Home"
+        navigationItem.title = "My Flash Card"
+        navigationController?.navigationBar.barTintColor = UIColor(red: 250/255, green: 249/255, blue: 249/255, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 1.0)
+        ]
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEvent))
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        navigationController?.navigationBar.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 1.0)
     }
 
     private func initTableView() {
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - tabBarController!.tabBar.frame.size.height), style: .plain)
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        tableView.backgroundColor = .systemGroupedBackground
+        tableView.backgroundColor = UIColor(red: 233/255, green: 236/255, blue: 244/255, alpha: 1)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.separatorStyle = .none
         tableView.delegate = self
@@ -200,7 +206,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 200
     }
 }
 
