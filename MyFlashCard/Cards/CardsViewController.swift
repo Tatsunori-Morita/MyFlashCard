@@ -26,7 +26,7 @@ class CardsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = UIColor(red: 233/255, green: 236/255, blue: 244/255, alpha: 1)
         initToolBar()
         initController()
         initCollectionView()
@@ -50,8 +50,6 @@ class CardsViewController: UIViewController {
         toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
         toolbar.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        toolbar.layer.cornerRadius = 15
-        toolbar.layer.masksToBounds = true
         
         pageControl!.initValue(currentValue: flowLayout.currentIndex, maxValue: dataSource.cardModelsCount())
         pageControl!.translatesAutoresizingMaskIntoConstraints = false
@@ -346,7 +344,7 @@ extension CardsViewController {
     }
     
     private func setCellHeight() -> CGFloat {
-        return view.frame.height - pageControl.frame.height - toolbar.frame.height - 50
+        return view.frame.height - pageControl.frame.height - toolbar.frame.height - 80
     }
     
     private func initHeaderButton() {
