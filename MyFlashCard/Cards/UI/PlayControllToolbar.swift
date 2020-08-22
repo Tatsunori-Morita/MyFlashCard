@@ -8,8 +8,9 @@
 
 import UIKit
 
-class PlayControllToolbar: UIToolbar {
+class PlayControllToolbar: UIView {
     weak var playDelegate: PlayControllToolbarDelegete! = nil
+    private let toolbar = UIToolbar()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,21 +23,37 @@ class PlayControllToolbar: UIToolbar {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        toolbar.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
     }
     
     private func initToolBar() {
+        layer.cornerRadius  = 5
+        layer.shadowColor = UIColor(red: 203/255, green: 208/255, blue: 216/255, alpha: 1).cgColor
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 3, height: 3)
+        layer.shadowOpacity = 1
+        backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+        
+        toolbar.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+        toolbar.layer.cornerRadius = 10
+        toolbar.layer.masksToBounds = true
+        toolbar.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 1.0)
+        
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let playBtn = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
         let speakerBtn = UIBarButtonItem(image: UIImage(systemName: "speaker.3"), style: .plain, target: self, action: nil)
         let repeatBtn = UIBarButtonItem(image: UIImage(named: "repeat_none_Icon2"), style: .plain, target: self, action: nil)
         let speedBtn = UIBarButtonItem(image: UIImage(named: "speed_one"), style: .plain, target: self, action: nil)
         let intervalBtn = UIBarButtonItem(image: UIImage(named: "during_one"), style: .plain, target: self, action: nil)
+        
         playBtn.tag = Tag.playButton.rawValue
         speakerBtn.tag = Tag.speakerButton.rawValue
         repeatBtn.tag = Tag.repeatButton.rawValue
         speedBtn.tag = Tag.speedButton.rawValue
         intervalBtn.tag = Tag.intervalButton.rawValue
-        items = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
+        toolbar.items = [playBtn, space, speakerBtn, space, repeatBtn, space, speedBtn, space, intervalBtn]
+        
+        addSubview(toolbar)
     }
     
     private func setToolBar(bookModel: BookModel) {
@@ -101,10 +118,10 @@ class PlayControllToolbar: UIToolbar {
     func insertBarButtonItem(at: Int, image: UIImage, tag: Int) {
         let btn = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(tapToolBarButtonEvent))
         btn.tag = tag
-        var items = self.items
+        var items = self.toolbar.items
         items!.remove(at: at)
         items!.insert(btn, at: at)
-        self.items = items
+        self.toolbar.items = items
     }
     
     var book: BookModel? {

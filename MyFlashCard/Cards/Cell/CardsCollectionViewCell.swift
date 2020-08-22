@@ -34,42 +34,57 @@ class CardsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        layer.shadowColor = UIColor(red: 203/255, green: 208/255, blue: 216/255, alpha: 1).cgColor
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 3, height: 3)
+        layer.shadowOpacity = 1
+        layer.masksToBounds = false
         
         frontTextView = ToucheEventTextView()
+        frontTextView.textColor = UIColor(red: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        frontTextView.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         frontTextView.isEditable = false
         backTextView = ToucheEventTextView()
+        backTextView.textColor = UIColor(red: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        backTextView.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         backTextView.isEditable = false
         
         frontSpeekButton = UIButton(type: .system)
         frontSpeekButton.backgroundColor = .clear
+        frontSpeekButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 0.6)
         frontSpeekButton.setImage(UIImage(systemName: "speaker.3"), for: .normal)
         frontSpeekButton.addTarget(self, action: #selector(tapFrontSpeekButton), for: .touchUpInside)
         
         backSpeekButton = UIButton(type: .system)
         backSpeekButton.backgroundColor = .clear
+        backSpeekButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 0.6)
         backSpeekButton.setImage(UIImage(systemName: "speaker.3"), for: .normal)
         backSpeekButton.addTarget(self, action: #selector(tapBackSpeekButton), for: .touchUpInside)
         
         frontEyeInactiveButton = UIButton(type: .system)
         frontEyeInactiveButton.backgroundColor = .clear
+        frontEyeInactiveButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 0.6)
         frontEyeInactiveButton.tag = 1
         frontEyeInactiveButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         frontEyeInactiveButton.addTarget(self, action: #selector(tapFrontEyeInactiveButton), for: .touchUpInside)
         
         backEyeInactiveButton = UIButton(type: .system)
         backEyeInactiveButton.backgroundColor = .clear
+        backEyeInactiveButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 0.6)
         backEyeInactiveButton.tag = 2
         backEyeInactiveButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         backEyeInactiveButton.addTarget(self, action: #selector(tapBackEyeInactiveButton), for: .touchUpInside)
         
         frontEyeAtiveButton = UIButton(type: .system)
         frontEyeAtiveButton.backgroundColor = .clear
+        frontEyeAtiveButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 0.6)
         frontEyeAtiveButton.tag = 1
         frontEyeAtiveButton.setImage(UIImage(systemName: "eye"), for: .normal)
         frontEyeAtiveButton.addTarget(self, action: #selector(tapFrontEyeAtiveButton), for: .touchUpInside)
         
         backEyeActiveButton = UIButton(type: .system)
         backEyeActiveButton.backgroundColor = .clear
+        backEyeActiveButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 0.6)
         backEyeActiveButton.tag = 2
         backEyeActiveButton.setImage(UIImage(systemName: "eye"), for: .normal)
         backEyeActiveButton.addTarget(self, action: #selector(tapBackEyeActiveButton), for: .touchUpInside)
@@ -94,9 +109,9 @@ class CardsCollectionViewCell: UICollectionViewCell {
         backBaseView.addSubview(backEyeActiveButton)
         backBaseView.bringSubviewToFront(frontEyeAtiveButton)
         
-        frontBaseBorder.backgroundColor = UIColor.systemGray.cgColor
+        frontBaseBorder.backgroundColor = UIColor(red: 207/255, green: 207/255, blue: 209/255, alpha: 1).cgColor
         frontBaseView.layer.addSublayer(frontBaseBorder)
-        backBaseBorder.backgroundColor = UIColor.systemGray.cgColor
+        backBaseBorder.backgroundColor = UIColor(red: 207/255, green: 207/255, blue: 209/255, alpha: 1).cgColor
         backBaseView.layer.addSublayer(backBaseBorder)
     }
     
@@ -117,7 +132,7 @@ class CardsCollectionViewCell: UICollectionViewCell {
         backEyeActiveButton.isHidden = true
         backEyeInactiveButton.isHidden = false
         
-        frontBaseBorder.frame = CGRect(x: 0, y: frontBaseView.frame.height - 1, width: frontBaseView.frame.width, height: 1)
+        frontBaseBorder.frame = CGRect(x: 12, y: frontBaseView.frame.height - 1, width: frontBaseView.frame.width - 24, height: 1)
         backBaseBorder.frame = CGRect(x: 0, y: backBaseView.frame.height - 1, width: backBaseView.frame.width, height: 1)
     }
 
