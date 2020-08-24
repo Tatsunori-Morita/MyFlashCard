@@ -350,11 +350,12 @@ extension CardsViewController {
     private func initHeaderButton() {
         let closeButton = UIButton(type: .system)
         closeButton.frame = CGRect(x: 5, y: 20, width: 45, height: 45)
-        closeButton.setTitleColor(.systemBlue, for: .normal)
         let closeImg = UIImage(systemName: "multiply")
         closeButton.setImage(closeImg, for: .normal)
+        closeButton.tintColor = UIColor(red: 90/255, green: 91/255, blue: 91/255, alpha: 1)
+        closeButton.layer.cornerRadius = closeButton.frame.width / 2
         closeButton.layer.masksToBounds = true
-        closeButton.backgroundColor = .clear
+        closeButton.backgroundColor = UIColor(red: 207/255, green: 207/255, blue: 209/255, alpha: 0.4)
         closeButton.addTarget(self, action: #selector(closeEvent), for: .touchUpInside)
         view.addSubview(closeButton)
         view.bringSubviewToFront(closeButton)

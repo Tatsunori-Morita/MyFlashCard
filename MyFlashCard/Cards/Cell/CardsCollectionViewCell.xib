@@ -86,6 +86,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="w4R-5j-oYm"/>
                                                         </constraints>
+                                                        <color key="tintColor" red="0.3529411764705882" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="bookmark" catalog="system"/>
                                                         <connections>
                                                             <action selector="tapBookmarkActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LaG-Bg-ew4"/>
@@ -112,6 +113,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="I9T-MS-Wxd"/>
                                                         </constraints>
+                                                        <color key="tintColor" red="0.3529411764705882" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="checkmark.rectangle" catalog="system"/>
                                                         <connections>
                                                             <action selector="tapCheckActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jmZ-VV-bxD"/>
@@ -138,6 +140,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="ruM-GD-KGe"/>
                                                         </constraints>
+                                                        <color key="tintColor" red="0.35294117650000001" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="message" catalog="system"/>
                                                         <connections>
                                                             <action selector="tapCommentActiveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JKW-aH-8lU"/>
@@ -161,6 +164,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="T4n-DN-dQ2"/>
                                                 </constraints>
+                                                <color key="tintColor" red="0.35294117650000001" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="pencil" catalog="system"/>
                                                 <connections>
                                                     <action selector="edit:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rW5-xW-gro"/>
