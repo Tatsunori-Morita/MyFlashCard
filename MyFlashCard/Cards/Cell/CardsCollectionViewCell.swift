@@ -34,6 +34,9 @@ class CardsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.layer.cornerRadius = 5
+        contentView.layer.masksToBounds = true
+        
         layer.shadowColor = UIColor(red: 203/255, green: 208/255, blue: 216/255, alpha: 1).cgColor
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 3, height: 3)

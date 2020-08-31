@@ -35,7 +35,7 @@ class PlayControllToolbar: UIView {
         backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         
         toolbar.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
-        toolbar.layer.cornerRadius = 10
+        toolbar.layer.cornerRadius = 5
         toolbar.layer.masksToBounds = true
         toolbar.tintColor = UIColor(red: 90/255, green: 91/255, blue: 90/255, alpha: 1.0)
         
